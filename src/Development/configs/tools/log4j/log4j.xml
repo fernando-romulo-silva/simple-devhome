@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration debug="true" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+<!-- https://www.javacodegeeks.com/2011/01/10-tips-proper-application-logging.html -->
+
+	<appender name="LogConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="LogFileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="append" value="false" />
+		<param name="maxFileSize" value="10KB" />
+		<param name="maxBackupIndex" value="5" />
+		<!-- For Tomcat -->
+		<param name="file" value="${catalina.home}/logs/myApp.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="LogEmailAppender" class="org.apache.log4j.net.SMTPAppender">
+		<param name="SMTPHost" value="localhost" />
+		<param name="SMTPPort" value="587" />
+
+		<param name="SMTPUsername" value="my_email@log4j.com" />
+		<param name="SMTPPassword" value="123" />
+
+		<param name="From" value="peter@company.com" />
+		<param name="To" value="people@com, people2@com" />
+		<param name="Cc" value="people@com" />
+		<param name="Subject" value="[your server] message [your application]" />
+		<param name="BufferSize" value="1" />
+		<param name="Threshold" value="error" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- my project -->
+	<logger name="org.myproject" additivity="false">
+		<level value="info" />
+		<appender-ref ref="LogConsoleAppender" />
+	</logger>
+
+	<!-- google common -->
+	<logger name="com.google.common" additivity="false">
+		<level value="OFF" />
+		<appender-ref ref="LogConsoleAppender" />
+	</logger>
+
+    <!--LogLevel: OFF, FATAL, ERROR, WARN, INFO, DEBUG, ALL -->
+	<root>
+		<level value="ERROR" />
+		<appender-ref ref="LogConsoleAppender" />
+	</root>
+
+</log4j:configuration>

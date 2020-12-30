@@ -1,0 +1,148 @@
+
+https://dzone.com/articles/useful-eclipse-code-templates
+http://tomek.kaczanowscy.pl/
+http://practicalunittesting.com/
+
+#######################################################################################################
+
+slf4jLogger
+
+${:import(org.slf4j.Logger, org.slf4j.LoggerFactory)}
+
+private static final Logger LOGGER = LoggerFactory.getLogger(${enclosing_type}.class);
+
+#######################################################################################################
+
+testNgTest
+
+${:import(org.testng.annotations.Test,org.jtestutils.TestGroups)}
+
+@Test(priority = 1, groups = TestGroups.UNIT)
+public void ${testMethodName}(${cursor}) {
+}
+
+#######################################################################################################
+
+testNgTestDataProvider
+
+${:import(org.testng.annotations.Test, org.testng.annotations.DataProvider, org.jtestutils.TestGroups)}
+
+@DataProvider(name = "${dataProviderName}")
+public Object[][] ${dataProviderMethodName}() {
+        return new Object[][] {  //
+            { "",  null         },  //
+            { "" , null         }  //
+        };
+}
+
+@Test(priority = 1, dataProvider = "${dataProviderName}", groups = TestGroups.UNIT)
+public void ${testMethodName}(${cursor}) {
+}
+
+#######################################################################################################
+
+testNgTestDataProviderStandardTesting
+
+${:import(org.testng.annotations.Test, org.testng.annotations.DataProvider, org.jtestutils.TestGroups, org.jtestutils.StandardTesting, org.jtestutils.CoberturaParameter)}
+
+@DataProvider(name = "${dataProviderName}")
+public Object[][] ${dataProviderMethodName}() {
+		return StandardTesting.dataInvalidObjects(new CoberturaParameter[] { // 
+                CoberturaParameter.of("test", "", null), //
+                CoberturaParameter.of(10    , -1, 0   ) //
+        });
+}
+
+@Test(priority = 1, dataProvider = "${dataProviderName}", groups = TestGroups.UNIT)
+public void ${testMethodName}(${cursor}) {
+}
+
+#######################################################################################################
+
+commonsLangEqualsHashCodeToString
+
+${:import(org.apache.commons.lang.builder.EqualsBuilder,org.apache.commons.lang.builder.HashCodeBuilder,org.apache.commons.lang.builder.ToStringBuilder)}
+
+/*
+ * (non-Javadoc)
+ * @see java.lang.Object#equals(java.lang.Object)
+ */
+@Override
+public boolean equals(Object obj) {
+	if (this == obj) {
+		return true;
+	}
+	if (obj == null) {
+		return false;
+	}
+	if (!(obj instanceof ${enclosing_type})) {
+		return false;
+	}
+	final ${enclosing_type} other = (${enclosing_type}) obj;
+	
+    return new EqualsBuilder().append(this, other).isEquals();
+}
+
+/*
+ * (non-Javadoc)
+ * @see java.lang.Object#hashCode()
+ */
+@Override
+public int hashCode() {
+    return new HashCodeBuilder().append(this).hashCode();
+}
+
+/*
+ * (non-Javadoc)
+ * 
+ * @see java.lang.Object#toString()
+ */
+@Override
+public String toString() {
+	return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).toString();
+}
+
+
+#######################################################################################################
+
+guavaEqualsHashCodeToString
+
+${:import(com.google.common.base.Objects)}
+/*
+ * (non-Javadoc)
+ * @see java.lang.Object#toString()
+ */
+@Override
+public String toString() {
+	return Objects.toStringHelper(${enclosing_type}.class).toString();
+}
+
+/*
+ * (non-Javadoc)
+ * @see java.lang.Object#hashCode()
+ */
+@Override
+public int hashCode() {
+	return Objects.hashCode(this);
+}
+
+/*
+ * (non-Javadoc)
+ * @see java.lang.Object#equals(java.lang.Object)
+ */
+@Override
+public boolean equals(final Object obj) {
+	if (this == obj) {
+		return true;
+	}
+	if (obj == null) {
+		return false;
+	}
+	if (!(obj instanceof ${enclosing_type})) {
+		return false;
+	}
+	final ${enclosing_type} other = (${enclosing_type}) obj;
+
+	return Objects.equal(other, this);
+}
+#######################################################################################################
