@@ -18,6 +18,11 @@ if [ ! -d "$DEVELOPMENT_HOME" ]; then
 	mkdir -p $DEVELOPMENT_HOME
 fi
 
+# check if the local bin folder exists
+if [ ! -d $HOME/.local/bin ]; then
+	mkdir -p $HOME/.local/bin
+fi
+
 # copy the structure of folder, just the important
 rsync -av --progress . /$DEVELOPMENT_HOME --exclude scripts --exclude '*.bat' --exclude 'start-development-folder.sh'
 
