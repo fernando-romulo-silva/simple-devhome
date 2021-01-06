@@ -5,12 +5,12 @@
 
 ## Project status
 
-I use this project constantly, change words, and libs.
+I change this project constantly, adding new scripts.
 
 # About
 
-So, I used the [Quizlet](https://quizlet.com/fernando_romulo/recent) (flash cards) to learn English and Italian words. <br />
-The purpose of this project is to go through the cards and find repeat words.
+This project create a folder with all tools that I usually use on my daily work. <br />
+Not only create, but download, configure and set on environment using scripts.
 
 # Technologies
 
@@ -35,5 +35,16 @@ cd simple-devhome/src/Development
 echo $DEVELOPMENT_HOME
 ## start the script
 sh start-development-folder.sh
- 
+
+```
+
+# How to Use
+
+Just execute on terminal:
+
+```bash
+# for linux users
+## configure java 8, apache-ant-1.10.5, apache-maven-3.6.0 and gradle-5.1.1
+ . set-java-8.sh
+
 ```
