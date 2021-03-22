@@ -4,7 +4,7 @@ back=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for JDK 11-Dev (Jdk 11 with Dcevm-Full and HotswapAgent)"
+echo "Set the environment for Trava Open JDK 11 (Open Jdk 11 with Dcevm-Full and HotswapAgent)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.1+7/java11-openjdk-dcevm-linux.tar.gz jdk11-dev languages/java JAVA_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.1+7/java11-openjdk-dcevm-linux.tar.gz jdk11-travaopen-dev languages/java JAVA_HOME
 
 # Test it
 java -version

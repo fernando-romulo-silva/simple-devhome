@@ -4,7 +4,7 @@ back=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for JDK 6"
+echo "Set the environment for Zulu JDK 13"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu6.22.0.3-jdk6.0.119-linux_x64.tar.gz jdk6 languages/java JAVA_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu13.28.11-ca-jdk13.0.1-linux_x64.tar.gz jdk13-zulu languages/java JAVA_HOME
 
 # Test it
 java -version
@@ -28,7 +28,7 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install ant
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://ftp.unicamp.br/pub/apache//ant/binaries/apache-ant-1.9.13-bin.zip apache-ant-1.9.13 tools/apache-ant ANT_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://mirror.nbtelecom.com.br/apache//ant/binaries/apache-ant-1.10.5-bin.zip apache-ant-1.10.5 tools/apache-ant ANT_HOME
 
 # Test it
 ant -version
@@ -38,7 +38,7 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install maven
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://ftp.unicamp.br/pub/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.zip apache-maven-3.2.5 tools/apache-maven M2_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://ftp.unicamp.br/pub/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip apache-maven-3.6.0 tools/apache-maven M2_HOME
 
 # Test it
 mvn -version
@@ -48,7 +48,7 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://services.gradle.org/distributions/gradle-2.14.1-bin.zip gradle-2.14.1 tools/gradle GRADLE_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools/gradle GRADLE_HOME
 
 # Test it
 gradle -v

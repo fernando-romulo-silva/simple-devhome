@@ -37,6 +37,7 @@ cd $DEVELOPMENT_HOME/scripts/
 
 # create sh files to call folder's scripts batch
 for d in *; do
+	
     if [ -d "${d}" ] && [ ! $d = "internal" ] && [ ! $d = "*doc*" ]; then
        cd $d
 

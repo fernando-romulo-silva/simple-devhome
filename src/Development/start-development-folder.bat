@@ -4,6 +4,7 @@ echo Starting the development home
 
 rem check the DEVELOPMENT_HOME variable
 call scripts\windows\internal\check-develpment-folder var1
+
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
     goto exit
@@ -17,7 +18,7 @@ if not exist "%DEVELOPMENT_HOME%" (
 	rem create folder
     md "%DEVELOPMENT_HOME%"
     
-    rem 
+    rem check error
     if errorlevel 1 (
         pause
         goto :exit

@@ -4,7 +4,7 @@ back=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for JDK 11"
+echo "Set the environment for Zulu JDK 8"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -16,9 +16,12 @@ else
   echo $result
 fi
 
+echo " "
+echo " "
+
 # -----------------------------------------------------------------------------------------------------
 # install java
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu11.29.3-ca-jdk11.0.2-linux_x64.tar.gz jdk11 languages/java JAVA_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu8.34.0.1-ca-jdk8.0.201-linux_x64.tar.gz jdk8-zulu languages/java JAVA_HOME
 
 # Test it
 java -version
