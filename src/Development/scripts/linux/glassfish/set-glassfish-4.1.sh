@@ -1,6 +1,6 @@
 #!/bin/bash
 # go to script dir
-back=$(pwd)
+back_glass=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/glassfish
 
 echo "=============================================================================================================================="
@@ -29,6 +29,6 @@ fi
 . $DEVELOPMENT_HOME/scripts/glassfish/doc-glassfish.sh
 
 # go back
-cd $back
+cd $back_glass
 
 echo "=============================================================================================================================="

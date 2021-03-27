@@ -1,6 +1,6 @@
 #!/bin/bash
 # go to script dir
-back=$(pwd)
+back_wild=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/wildfly
 
 echo "=============================================================================================================================="
@@ -29,6 +29,6 @@ fi
 . $DEVELOPMENT_HOME/scripts/wildfly/doc-wildfly.sh
 
 # go back
-cd $back
+cd $back_wild
 
 echo "=============================================================================================================================="

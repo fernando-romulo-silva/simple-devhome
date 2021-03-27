@@ -18,12 +18,12 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.1+7/java11-openjdk-dcevm-linux.tar.gz jdk11-travaopen-dev languages/java JAVA_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.1+7/java11-openjdk-dcevm-linux.tar.gz jdk11-travaopen languages/java JAVA_HOME
 
 # Test it
 java -version
 
-echo "Don't forget to put the hotswap-agent.properties on your classpath (src/main/reshs)"
+echo "Don't forget to put the hotswap-agent.properties on your classpath (src/main/resources)"
 echo " "
 
 # go back

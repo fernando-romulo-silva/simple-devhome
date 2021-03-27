@@ -30,7 +30,7 @@ Ex:
 export DEVELOPMENT_HOME="/home/fernando/Development"
 
 export DOCKER_VOLUMES_HOME="$DEVELOPMENT_HOME/files/dockerVolumes"
-export JAVA_HOME="$DEVELOPMENT_HOME/languages/java/jdk14"
+export JAVA_HOME="$DEVELOPMENT_HOME/languages/java/jdk11-zulu"
 export ANT_HOME="$DEVELOPMENT_HOME/tools/apache-ant/apache-ant-1.10.5"
 export M2_HOME="$DEVELOPMENT_HOME/tools/apache-maven/apache-maven-3.6.0"
 export GRADLE_HOME="$DEVELOPMENT_HOME/tools/gradle/gradle-5.1.1"

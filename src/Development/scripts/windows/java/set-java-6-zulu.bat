@@ -4,24 +4,21 @@ set back=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for JDK 7
+echo Set the environment for Zulu JDK 6
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    goto exit
+    exit /B 
 ) else (
  	echo %var1%
-) 
-
-echo(
-echo(
+)
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu7.25.0.5-jdk7.0.201-win_x64.zip jdk7 languages\java JAVA_HOME
+call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu6.22.0.3-jdk6.0.119-win_x64.zip jdk6-zulu languages\java JAVA_HOME
 
 rem Test it
 call java -version
@@ -41,17 +38,17 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install maven
-call ..\internal\set-program http://ftp.unicamp.br/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip apache-maven-3.3.9 tools\apache-maven M2_HOME
+call ..\internal\set-program http://ftp.unicamp.br/pub/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.zip apache-maven-3.2.5 tools\apache-maven M2_HOME
 
 rem Test it
 call mvn -version 
 
 echo(
-echo(
+echo( 
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-3.5.1-bin.zip gradle-3.5.1 tools\gradle GRADLE_HOME
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-2.14.1-bin.zip gradle-2.14.1 tools\gradle GRADLE_HOME
 
 rem Test it
 call gradle -v

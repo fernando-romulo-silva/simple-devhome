@@ -1,6 +1,6 @@
 #!/bin/bash
 # go to script dir
-back=$(pwd)
+back_tom=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/tomcat
 
 echo "=============================================================================================================================="
@@ -28,8 +28,7 @@ fi
 # doc tomcat
 . $DEVELOPMENT_HOME/scripts/tomcat/doc-tomcat.sh
 
-
 # go back
-cd $back
+cd $back_tom
 
 echo "=============================================================================================================================="

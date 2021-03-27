@@ -2,6 +2,10 @@
 echo "-----------------------------------------------------------------------------------------------------"
 echo "Doc for Glassfish"
 echo ""
+echo "------ Info -------------"
+echo ""
+asadmin version
+echo ""
 echo "------ Start ------------"
 echo ""
 echo "To start GlassFish Server from the command line, execute the following:"

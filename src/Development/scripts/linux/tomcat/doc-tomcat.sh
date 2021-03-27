@@ -2,13 +2,16 @@
 echo "-----------------------------------------------------------------------------------------------------"
 echo "Doc for Tomcat"
 echo ""
-
 # -----------------------------------------------------------------------------------------------------
 # Open to Debug
 export CATALINA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
 export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n"
 
 # -----------------------------------------------------------------------------------------------------
+echo "------ Info -------------"
+echo ""
+version.sh
+echo ""
 echo "------ Start ------------"
 echo ""
 echo "To start Tomcat Server from the command line, execute the following:"

@@ -4,7 +4,7 @@ back=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for Zulu JDK 7 with DCEVM-Full and HotswapAgent"
+echo "Set the environment for Zulu JDK 8 with DCEVM-Light and HotswapAgent"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://cdn-files.evildayz.com/mirror/java/jdk_7u79/jdk-7u79-linux-x64.tar.gz jdk7-zulu-dev languages/java JAVA_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_x64.tar.gz jdk8-zulu-dcevm languages/java JAVA_HOME
 
 # Test it
 java -version
@@ -28,13 +28,13 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install DCEVM
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/dcevm/dcevm/releases/download/full-jdk7u79+8/DCEVM-full-7u79-installer.jar DCEVM-full-7 tools/DCEVM
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/dcevm/dcevm/releases/download/light-jdk8u181/DCEVM-8u181-installer.jar DCEVM-light-8 tools/DCEVM
 
 # backup the libjvm.so file
 mv -vn $JAVA_HOME/jre/lib/amd64/server/libjvm.so $JAVA_HOME/jre/lib/amd64/server/libjvm.so.backup 
 
-# extract the DCEVM's jvm.so to jdk
-unzip -q -p $DEVELOPMENT_HOME/tools/DCEVM/DCEVM-full-7/DCEVM-full-7.jar linux_amd64_compiler2/product/libjvm.so > $JAVA_HOME/jre/lib/amd64/server/libjvm.so
+# extract the DCEVM's libjvm.so to jdk
+unzip -q -p $DEVELOPMENT_HOME/tools/DCEVM/DCEVM-light-8/DCEVM-light-8.jar linux_amd64_compiler2/product/libjvm.so > $JAVA_HOME/jre/lib/amd64/server/libjvm.so
 
 # Test it
 java -version
