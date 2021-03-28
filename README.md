@@ -19,8 +19,18 @@ Not only create, but download, configure and set on environment using scripts.
 
 # Install
 
-First, you need the correct OS and the git installed. <br />
+First, you need the correct OS (windows or Linux) and the git installed. <br />
 Then you need a new folder to put the scripts, and set the path folder on DEVELOPMENT_HOME environment. <br />
+It's usually something like:
+
+```bash
+/home/yourUser/Development
+```
+or
+
+```bash
+C:\Users\yourUser\Development
+```
 Now execute:
 
 ```bash
@@ -31,10 +41,20 @@ git clone https://github.com/fernando-romulo-silva/simple-devhome
 cd simple-devhome/src/Development
 
 # for linux users
+
 ## check the DEVELOPMENT_HOME
 echo $DEVELOPMENT_HOME
+
 ## start the script
 sh start-development-folder.sh
+
+# for windows users
+
+## check the DEVELOPMENT_HOME
+echo %DEVELOPMENT_HOME%
+
+## start the script
+start-development-folder.bat
 
 ```
 
