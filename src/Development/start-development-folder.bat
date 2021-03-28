@@ -52,7 +52,7 @@ for /d %%d in (*) do (
        cd %%d
     
        for %%f in (*.bat) do (   
-           @echo echo call %DEVELOPMENT_HOME%\scripts\%%d\%%f > %DEVELOPMENT_HOME%\scripts\%%f 
+           @echo call %DEVELOPMENT_HOME%\scripts\%%d\%%f > %DEVELOPMENT_HOME%\scripts\%%f 
        )
        
        cd ..
