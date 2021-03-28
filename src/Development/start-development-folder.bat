@@ -35,8 +35,8 @@ rd /s /q %DEVELOPMENT_HOME%\scripts\windows
 
 xcopy /y /s scripts\windows\* %DEVELOPMENT_HOME%\scripts\
 
-del /s /q "%DEVELOPMENT_HOME%\start-development-folder.bat"
-del /s /q "%DEVELOPMENT_HOME%\start-development-folder.sh"
+del /s /q %DEVELOPMENT_HOME%\start-development-folder.bat
+del /s /q %DEVELOPMENT_HOME%\start-development-folder.sh
 
 rem current dir's backup
 set back=%cd%
@@ -52,7 +52,7 @@ for /d %%d in (*) do (
        cd %%d
     
        for %%f in (*.bat) do (   
-           echo call %DEVELOPMENT_HOME%\scripts\%%d\%%f >  %DEVELOPMENT_HOME%\scripts\%%f       
+           echo call %DEVELOPMENT_HOME%\scripts\%%d\%%f > %DEVELOPMENT_HOME%\scripts\%%f       
        )
        
        cd ..
