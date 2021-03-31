@@ -25,15 +25,16 @@ call ..\internal\get-extension extension %url% %final_name%
 
 rem -----------------------------------------------------------------------------------------------------
 rem is the program already installed?
+
+echo %DEVELOPMENT_HOME%\%dest%\%final_name%
+
 if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 
-   rem is the file already download?
-   if not exist %dev_folder_downloads%\%final_name%%extension% (
-      rem download it!
-      certutil -urlcache -split -f  %url% %dev_folder_downloads%\%final_name%%extension%
-	  certutil -urlcache -split -f
-	  
-   )
+  rem is the file already download?
+  if not exist %dev_folder_downloads%\%final_name%%extension% (
+     rem download it!
+	 bitsadmin /transfer debjob /download /priority normal %url% %dev_folder_downloads%\%final_name%%extension%
+  )
     
   rem if it's a compressed file?
   if not %extension% == .zip (
@@ -47,7 +48,7 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
   ) else if %extension% == .zip (
   
      rem get the folder's name inside
-     for /f "delims=/" %%a in ('unzip -Z -1 "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
+     for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
          set current_name=%%a
          goto print 
      )
@@ -55,7 +56,7 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
      echo current_name %current_name%
      
      rem uncompress it! 
-     unzip -o -q %dev_folder_downloads%\%final_name%.zip -d %dev_folder_downloads%
+     tar -xf %dev_folder_downloads%\%final_name%.zip --directory %dev_folder_downloads%
   ) 
    
    rem -----------------------------------------------------------------------------------------------------
