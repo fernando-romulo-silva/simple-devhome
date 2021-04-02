@@ -28,7 +28,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install ant
-call ..\internal\set-program http://mirror.nbtelecom.com.br/apache//ant/binaries/apache-ant-1.10.5-bin.zip apache-ant-1.10.5 tools\apache-ant ANT_HOME
+call ..\ant\ant-1.10.9
 
 rem Test it
 call ant -version
@@ -38,7 +38,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install maven
-call ..\internal\set-program http://ftp.unicamp.br/pub/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip apache-maven-3.6.0 tools\apache-maven M2_HOME
+call ..\internal\set-program https://archive.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip apache-maven-3.6.0 tools\apache-maven M2_HOME
 
 rem Test it
 call mvn -version

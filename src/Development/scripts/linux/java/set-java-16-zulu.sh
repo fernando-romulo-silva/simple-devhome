@@ -28,7 +28,7 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install ant
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://mirror.nbtelecom.com.br/apache//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools/apache-ant ANT_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools/apache-ant ANT_HOME
 
 # Test it
 ant -version
@@ -48,7 +48,7 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://services.gradle.org/distributions/gradle-6.6.1-bin.zip gradle-6.6.1 tools/gradle GRADLE_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://services.gradle.org/distributions/gradle-6.8.3-bin.zip gradle-6.8.3 tools/gradle GRADLE_HOME
 
 # Test it
 gradle -v

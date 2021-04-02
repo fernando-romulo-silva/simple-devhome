@@ -28,9 +28,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install ant
-if not exist %DEVELOPMENT_HOME%\tools\apache-ant\apache-ant-1.10.5 (
-	call ..\internal\set-program http://mirror.nbtelecom.com.br/apache//ant/binaries/apache-ant-1.10.5-bin.zip apache-ant-1.10.5 tools\apache-ant ANT_HOME
-)
+call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
 
 rem test it
 call ant -version
@@ -40,7 +38,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install maven
-call ..\internal\set-program http://ftp.unicamp.br/pub/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip apache-maven-3.6.0 tools\apache-maven M2_HOME
+call ..\internal\set-program https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip apache-maven-3.6.3 tools\apache-maven M2_HOME
 
 rem test it
 call mvn -version
@@ -50,7 +48,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools\gradle GRADLE_HOME
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-6.8.3-bin.zip gradle-6.8.3 tools\gradle GRADLE_HOME
 
 rem test it
 call gradle -v
