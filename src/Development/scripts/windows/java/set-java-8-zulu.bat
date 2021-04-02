@@ -28,7 +28,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install ant
-call ..\ant\ant-1.10.9
+call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
 
 rem Test it
 call ant -version

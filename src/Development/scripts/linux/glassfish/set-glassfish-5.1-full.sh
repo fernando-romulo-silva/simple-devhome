@@ -4,7 +4,7 @@ back_glass=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/glassfish
 
 echo "=============================================================================================================================="
-echo "Set the environment for Glassfish 4.1"
+echo "Set the environment for Glassfish 5.1 Full Profile"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -17,12 +17,12 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java 7
-. $DEVELOPMENT_HOME/scripts/java/set-java-7-zulu.sh
+# install java 8
+. $DEVELOPMENT_HOME/scripts/java/set-java-8-zulu.sh
 
 # -----------------------------------------------------------------------------------------------------
-# install glassfish 4.1
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://download.java.net/glassfish/4.1.2/release/glassfish-4.1.2.zip glassfish-4.1 servers/glassfish GLASSFISH_HOME
+# install glassfish 5.1
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/5.1.0/glassfish-5.1.0.zip glassfish-5.1 servers/glassfish GLASSFISH_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc glassfish

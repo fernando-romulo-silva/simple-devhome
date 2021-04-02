@@ -16,9 +16,6 @@ else
   echo $result
 fi
 
-echo " "
-echo " "
-
 # -----------------------------------------------------------------------------------------------------
 # install java
 . $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu8.34.0.1-ca-jdk8.0.201-linux_x64.tar.gz jdk8-zulu languages/java JAVA_HOME

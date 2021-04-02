@@ -1,29 +1,30 @@
 @echo off
 rem go to script dir
 set back=%cd%
-cd %DEVELOPMENT_HOME%\scripts\ant
+cd %DEVELOPMENT_HOME%\scripts\wildfly
 
 echo ==============================================================================================================================
-echo Set the environment for Ant 1.9 (JDK8+)
+echo Set the Environment for Wildfly 15 Full Profile 
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    exit /B 
+    goto exit
 ) else (
  	echo %var1%
-)
+) 
 
 rem -----------------------------------------------------------------------------------------------------
-rem install ant
-call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
+rem install java 11
+call ..\java\set-java-11-zulu
 
-rem Test it
-call ant -version
+rem -----------------------------------------------------------------------------------------------------
+rem install wildfly 15 Full
+call ..\internal\set-program https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0 servers\wildfly WILDFLY_HOME
 
-rem go back
+rem go back 
 cd %back%
 
 echo ==============================================================================================================================

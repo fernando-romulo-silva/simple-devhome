@@ -4,7 +4,7 @@ set back=%cd%
 cd %DEVELOPMENT_HOME%\scripts\ant
 
 echo ==============================================================================================================================
-echo Set the environment for Ant 1.9 (JDK8+)
+echo Set the environment for Gradle 2.14.1 (JDK6)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -17,11 +17,11 @@ if /I "%var1:error=%" neq "%var1%" (
 )
 
 rem -----------------------------------------------------------------------------------------------------
-rem install ant
-call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
+rem install gradle
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-2.14.1-bin.zip gradle-2.14.1 tools\gradle GRADLE_HOME
 
 rem Test it
-call ant -version
+call gradle -v
 
 rem go back
 cd %back%

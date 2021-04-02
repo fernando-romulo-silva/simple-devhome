@@ -1,30 +1,29 @@
 @echo off
 rem go to script dir
 set back=%cd%
-cd %DEVELOPMENT_HOME%\scripts\glassfish
+cd %DEVELOPMENT_HOME%\scripts\ant
 
 echo ==============================================================================================================================
-echo Set the Environment for Glassfish 4.1
+echo Set the environment for Gradle 3.5 (JDK8)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    goto exit
+    exit /B 
 ) else (
  	echo %var1%
-) 
+)
 
 rem -----------------------------------------------------------------------------------------------------
-rem install java 7
-call ..\java\set-java-7
+rem install gradle
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools\gradle GRADLE_HOME
 
-rem -----------------------------------------------------------------------------------------------------
-rem install glassfish 4.1 full
-call ..\internal\set-program http://download.java.net/glassfish/4.1.2/release/glassfish-4.1.2.zip glassfish-4.1 servers\glassfish GLASSFISH_HOME
+rem Test it
+call gradle -v
 
-rem go back 
+rem go back
 cd %back%
 
 echo ==============================================================================================================================

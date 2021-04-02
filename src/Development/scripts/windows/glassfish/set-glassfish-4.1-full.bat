@@ -1,29 +1,30 @@
 @echo off
 rem go to script dir
 set back=%cd%
-cd %DEVELOPMENT_HOME%\scripts\ant
+cd %DEVELOPMENT_HOME%\scripts\glassfish
 
 echo ==============================================================================================================================
-echo Set the environment for Ant 1.9 (JDK8+)
+echo Set the Environment for Glassfish 4.1 Full Profile
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    exit /B 
+    goto exit
 ) else (
  	echo %var1%
-)
+) 
 
 rem -----------------------------------------------------------------------------------------------------
-rem install ant
-call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
+rem install java 7
+call ..\java\set-java-7-zulu
 
-rem Test it
-call ant -version
+rem -----------------------------------------------------------------------------------------------------
+rem install glassfish 4.1 full
+call ..\internal\set-program http://download.java.net/glassfish/4.1.2/release/glassfish-4.1.2.zip glassfish-4.1 servers\glassfish GLASSFISH_HOME
 
-rem go back
+rem go back 
 cd %back%
 
 echo ==============================================================================================================================

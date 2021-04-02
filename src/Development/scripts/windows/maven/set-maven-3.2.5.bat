@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
 set back=%cd%
-cd %DEVELOPMENT_HOME%\scripts\ant
+cd %DEVELOPMENT_HOME%\scripts\maven
 
 echo ==============================================================================================================================
-echo Set the environment for Ant 1.9 (JDK8+)
+echo Set the environment for Maven 3.2.5 (JDK6)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -17,11 +17,11 @@ if /I "%var1:error=%" neq "%var1%" (
 )
 
 rem -----------------------------------------------------------------------------------------------------
-rem install ant
-call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
+rem install maven
+call ..\internal\set-program https://archive.apache.org/dist/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.zip apache-maven-3.2.5 tools\apache-maven M2_HOME
 
 rem Test it
-call ant -version
+call mvn -version 
 
 rem go back
 cd %back%

@@ -4,7 +4,7 @@ set back=%cd%
 cd %DEVELOPMENT_HOME%\scripts\glassfish
 
 echo ==============================================================================================================================
-echo Set the Environment for Glassfish 5.0 Full
+echo Set the Environment for Glassfish 5.1 Full Profile
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -17,12 +17,12 @@ if /I "%var1:error=%" neq "%var1%" (
 ) 
 
 rem -----------------------------------------------------------------------------------------------------
-rem change to java 8
-call ..\java\set-java-8
+rem install java 8
+call ..\java\set-java-8-zulu
 
 rem -----------------------------------------------------------------------------------------------------
-rem install glassfish 5.0 full
-call ..\internal\set-program http://download.java.net/glassfish/5.0/release/javaee8-ri.zip glassfish-5.0 servers\glassfish GLASSFISH_HOME
+rem install glassfish 5.1 full
+call ..\internal\set-program https://www.eclipse.org/downloads/download.php?file=/glassfish/glassfish-5.1.0.zip glassfish-5.1 servers\glassfish GLASSFISH_HOME
 
 rem go back 
 cd %back%

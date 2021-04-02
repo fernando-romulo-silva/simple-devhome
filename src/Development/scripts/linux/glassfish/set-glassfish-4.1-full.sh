@@ -1,10 +1,10 @@
 #!/bin/bash
 # go to script dir
-back_wild=$(pwd)
-cd $DEVELOPMENT_HOME/scripts/wildfly
+back_glass=$(pwd)
+cd $DEVELOPMENT_HOME/scripts/glassfish
 
 echo "=============================================================================================================================="
-echo "Set the environment for Wildfly-15"
+echo "Set the environment for Glassfish 4.1 Full Profile"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -17,18 +17,18 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java 11
-. $DEVELOPMENT_HOME/scripts/java/set-java-11-zulu.sh
+# install java 7
+. $DEVELOPMENT_HOME/scripts/java/set-java-7-zulu.sh
 
 # -----------------------------------------------------------------------------------------------------
-# install wildfly-15
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0 servers/wildfly WILDFLY_HOME
+# install glassfish 4.1
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://download.java.net/glassfish/4.1.2/release/glassfish-4.1.2.zip glassfish-4.1 servers/glassfish GLASSFISH_HOME
 
 # -----------------------------------------------------------------------------------------------------
-# doc Wildfly
-. $DEVELOPMENT_HOME/scripts/wildfly/doc-wildfly.sh
+# doc glassfish
+. $DEVELOPMENT_HOME/scripts/glassfish/doc-glassfish.sh
 
 # go back
-cd $back_wild
+cd $back_glass
 
 echo "=============================================================================================================================="
