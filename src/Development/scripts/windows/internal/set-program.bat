@@ -33,9 +33,9 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
   rem is the file already download?
   if not exist %dev_folder_downloads%\%final_name%%extension% (
      rem download it!
-	 bitsadmin /transfer debjob /download /priority normal %url% %dev_folder_downloads%\%final_name%%extension%
+	 bitsadmin /transfer download /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto :error
   )
-    
+	
   rem if it's a compressed file?
   if not %extension% == .zip (
      
@@ -61,7 +61,9 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
    
    rem -----------------------------------------------------------------------------------------------------
    rem create the dest folder
-   if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% mkdir %DEVELOPMENT_HOME%\%dest%\%final_name%
+   if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
+       mkdir %DEVELOPMENT_HOME%\%dest%\%final_name%
+   )
    
    rem -----------------------------------------------------------------------------------------------------
    rem is the folder extracted equals to final name?   
@@ -83,8 +85,8 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
    xcopy /y /s %dev_folder_downloads%\%final_name%\*  %DEVELOPMENT_HOME%\%dest%\%final_name%\
    
    rem exclude download folder
-   rd /s /q %dev_folder_downloads%\%final_name%
-)
+   rd /s /q %dev_folder_downloads%\%final_name% 
+) 
 
 rem -----------------------------------------------------------------------------------------------------
 rem check if need declare environment variable
@@ -111,7 +113,12 @@ if not [%var_name%]==[] (
 )
 
 echo Software %final_name% installed in %DEVELOPMENT_HOME%\%dest%\%final_name%
-echo(
+
+goto :EOF
+
+:error
+echo Failed with error #%errorlevel%.
+exit /b %errorlevel%
 
 rem echo ==========================================================================
 rem echo FOR DEBUGGING
