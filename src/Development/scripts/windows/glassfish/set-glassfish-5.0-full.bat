@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_glass=%cd%
 cd %DEVELOPMENT_HOME%\scripts\glassfish
 
 echo ==============================================================================================================================
-echo Set the Environment for Glassfish 5.0 Full Profile
+echo Set the Environment for Glassfish 5.0 Full Profile (JEE 8)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -22,10 +22,14 @@ call ..\java\set-java-8-zulu
 
 rem -----------------------------------------------------------------------------------------------------
 rem install glassfish 5.0 full
-call ..\internal\set-program http://download.java.net/glassfish/5.0/release/javaee8-ri.zip glassfish-5.0 servers\glassfish GLASSFISH_HOME
+call ..\internal\set-program http://download.java.net/glassfish/5.0/release/javaee8-ri.zip glassfish-5.0-full servers\glassfish GLASSFISH_HOME
+
+rem -----------------------------------------------------------------------------------------------------
+rem doc glassfish
+call %DEVELOPMENT_HOME%\scripts\glassfish\doc-glassfish
 
 rem go back 
-cd %back%
+cd %back_glass%
 
 echo ==============================================================================================================================
 :exit

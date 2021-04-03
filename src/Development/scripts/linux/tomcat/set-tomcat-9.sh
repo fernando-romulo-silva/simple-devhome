@@ -4,7 +4,7 @@ back_tom=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/tomcat
 
 echo "=============================================================================================================================="
-echo "Set the environment for Tomcat 9.0"
+echo "Set the Environment for Tomcat 9.0 (JEE 8 Web = Servlet 4.0, JSP 2.3, EL 3.0, WebSocket 1.1, Authentication (JASIC) 1.1)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable

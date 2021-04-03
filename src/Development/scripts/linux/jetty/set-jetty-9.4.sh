@@ -1,6 +1,6 @@
 #!/bin/bash
 # go to script dir
-back=$(pwd)
+back_jetty=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/jetty
 
 echo "=============================================================================================================================="
@@ -29,6 +29,6 @@ fi
 . $DEVELOPMENT_HOME/scripts/jetty/doc-jetty.sh
 
 # go back
-cd $back
+cd $back_jetty
 
 echo "=============================================================================================================================="

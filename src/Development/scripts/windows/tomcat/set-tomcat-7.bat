@@ -4,8 +4,8 @@ set back=%cd%
 cd %DEVELOPMENT_HOME%\scripts\tomcat
 
 echo ==============================================================================================================================
-echo Set the Environment for Tomcat 7.0
-
+echo Set the Environment for Tomcat 7.0 (JEE 6 Web = Servlet 3.0, JSP 2.2, EL 2.2, WebSocket 1.1, Authentication (JASIC) N/A)
+ 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1

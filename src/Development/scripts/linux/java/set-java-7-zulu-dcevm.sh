@@ -36,9 +36,6 @@ mv -vn $JAVA_HOME/jre/lib/amd64/server/libjvm.so $JAVA_HOME/jre/lib/amd64/server
 # extract the DCEVM's jvm.so to jdk
 unzip -q -p $DEVELOPMENT_HOME/tools/DCEVM/DCEVM-full-7/DCEVM-full-7.jar linux_amd64_compiler2/product/libjvm.so > $JAVA_HOME/jre/lib/amd64/server/libjvm.so
 
-# Test it
-java -version
-
 echo " "
 echo " "
 
@@ -49,6 +46,9 @@ echo " "
 echo "To use hotswap agent, launch your application server with options: -javaagent:'path_to_jar_file'/hotswap-agent-1.3.0.jar"
 echo "Don't forget to put the hotswap-agent.properties on your classpath (src/main/reshs)"
 echo " "
+
+# Test it
+java -version
 
 # go back
 cd $back

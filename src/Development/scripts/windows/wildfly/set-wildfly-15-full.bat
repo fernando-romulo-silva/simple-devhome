@@ -4,7 +4,7 @@ set back=%cd%
 cd %DEVELOPMENT_HOME%\scripts\wildfly
 
 echo ==============================================================================================================================
-echo Set the Environment for Wildfly 15 Full Profile 
+echo Set the Environment for Wildfly 15 Full Profile (JEE 8)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable

@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
 set back=%cd%
-cd %DEVELOPMENT_HOME%\scripts\ant
+cd %DEVELOPMENT_HOME%\scripts\gradle
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 2.14.1 (JDK6)
+echo Set the environment for Gradle 2.14 (JDK 6)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -14,6 +14,13 @@ if /I "%var1:error=%" neq "%var1%" (
     exit /B 
 ) else (
  	echo %var1%
+)
+
+rem -----------------------------------------------------------------------------------------------------
+rem check JAVA_HOME
+if %JAVA_HOME%=="" (
+   echo Java home, JAVA_HOME, is not configured, please configure it.
+   exit /B 
 )
 
 rem -----------------------------------------------------------------------------------------------------

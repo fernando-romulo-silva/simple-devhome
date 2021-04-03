@@ -1,6 +1,6 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_java=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
@@ -20,41 +20,29 @@ rem ----------------------------------------------------------------------------
 rem install java
 call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu8.34.0.1-ca-jdk8.0.201-win_x64.zip jdk8-zulu languages\java JAVA_HOME
 
-rem Test it
-call java -version
-
 echo(
 echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install ant
-call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
-
-rem Test it
-call ant -version
+call ..\ant\set-ant-1.10
 
 echo(
 echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install maven
-call ..\internal\set-program https://archive.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip apache-maven-3.6.0 tools\apache-maven M2_HOME
-
-rem Test it
-call mvn -version
+call ..\maven\set-maven-3.6
 
 echo(
 echo( 
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools\gradle GRADLE_HOME
-
-rem Test it
-call gradle -v
+call ..\gradle\set-gradle-5.1
 
 rem go back
-cd %back%
+cd %back_java%
 
 echo ==============================================================================================================================
 :exit

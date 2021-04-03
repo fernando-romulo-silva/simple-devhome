@@ -8,6 +8,10 @@ echo ""
 export JAVA_OPTIONS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
 
 # -----------------------------------------------------------------------------------------------------
+echo "------ Info -------------"
+echo ""
+jetty.sh check
+echo ""
 echo "------ Start ------------"
 echo ""
 echo "To start Jetty Server from the command line, execute the following:"

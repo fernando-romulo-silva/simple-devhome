@@ -4,7 +4,7 @@ back_glass=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/glassfish
 
 echo "=============================================================================================================================="
-echo "Set the environment for Glassfish 5.0 Full Profile"
+echo "Set the Environment for Glassfish 5.0 Full Profile (JEE 8)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -22,7 +22,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install glassfish 5.0
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://download.java.net/glassfish/5.0/release/javaee8-ri.zip glassfish-5.0 servers/glassfish GLASSFISH_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://download.java.net/glassfish/5.0/release/javaee8-ri.zip glassfish-5.0-full servers/glassfish GLASSFISH_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc glassfish

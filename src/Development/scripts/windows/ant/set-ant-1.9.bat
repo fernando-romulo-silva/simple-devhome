@@ -17,6 +17,13 @@ if /I "%var1:error=%" neq "%var1%" (
 )
 
 rem -----------------------------------------------------------------------------------------------------
+rem check JAVA_HOME
+if %JAVA_HOME%=="" (
+   echo Java home, JAVA_HOME, is not configured, please configure it.
+   exit /B 
+)
+
+rem -----------------------------------------------------------------------------------------------------
 rem install ant
 call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.9.15-bin.zip apache-ant-1.9.15 tools\apache-ant ANT_HOME
 

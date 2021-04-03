@@ -1,10 +1,10 @@
 #!/bin/bash
 # go to script dir
-back_wild=$(pwd)
-cd $DEVELOPMENT_HOME/scripts/wildfly
+back_maven=$(pwd)
+cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for Wildfly-15 Full Profile"
+echo "Set the environment for Maven 3.6 (JDK 8+)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -17,18 +17,20 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java 11
-. $DEVELOPMENT_HOME/scripts/java/set-java-11-zulu.sh
+# check the JAVA_HOME variable
+if [[ -z "${JAVA_HOME}" ]] ; then
+  echo "Java home, JAVA_HOME, is not configured, please configure it."
+  exit 1
+fi
 
 # -----------------------------------------------------------------------------------------------------
-# install wildfly-15
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0-full servers/wildfly WILDFLY_HOME
+# install maven
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip apache-maven-3.6.3 tools/apache-maven M2_HOME
 
-# -----------------------------------------------------------------------------------------------------
-# doc Wildfly
-. $DEVELOPMENT_HOME/scripts/wildfly/doc-wildfly.sh
+# Test it
+mvn -version
 
 # go back
-cd $back_wild
+cd $back_maven
 
 echo "=============================================================================================================================="

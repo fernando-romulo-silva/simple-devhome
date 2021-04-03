@@ -1,6 +1,6 @@
 #!/bin/bash
 # go to script dir
-back=$(pwd)
+back_java=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
@@ -28,32 +28,23 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install ant
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools/apache-ant ANT_HOME
-
-# Test it
-ant -version
+. $DEVELOPMENT_HOME/scripts/set-ant-1.10.sh
 
 echo " "
 echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install maven
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip apache-maven-3.6.3 tools/apache-maven M2_HOME
-
-# Test it
-mvn -version
+. $DEVELOPMENT_HOME/scripts/set-maven-3.6.sh
 
 echo " "
 echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://services.gradle.org/distributions/gradle-6.8.3-bin.zip gradle-6.8.3 tools/gradle GRADLE_HOME
-
-# Test it
-gradle -v
+. $DEVELOPMENT_HOME/scripts/set-gradle-6.8.sh
 
 # go back
-cd $back
+cd $back_java
 
 echo "=============================================================================================================================="
