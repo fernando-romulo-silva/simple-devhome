@@ -18,14 +18,14 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem check JAVA_HOME
-if %JAVA_HOME%=="" (
+if %JAVA_HOME% == "" (
    echo Java home, JAVA_HOME, is not configured, please configure it.
    exit /B 
 )
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://services.gradle.org/distributions/gradle-6.8.3-bin.zip gradle-6.8.3 tools/gradle GRADLE_HOME
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-6.8.3-bin.zip gradle-6.8.3 tools\gradle GRADLE_HOME
 
 rem Test it
 call gradle -v

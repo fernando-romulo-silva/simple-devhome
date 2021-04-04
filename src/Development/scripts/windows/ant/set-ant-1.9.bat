@@ -18,9 +18,9 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem check JAVA_HOME
-if %JAVA_HOME%=="" (
-   echo Java home, JAVA_HOME, is not configured, please configure it.
-   exit /B 
+if %JAVA_HOME% == "" (
+    echo Java home, JAVA_HOME, is not configured, please configure it.
+    exit /B
 )
 
 rem -----------------------------------------------------------------------------------------------------

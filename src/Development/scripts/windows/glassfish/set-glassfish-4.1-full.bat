@@ -22,7 +22,7 @@ call ..\java\set-java-7-zulu
 
 rem -----------------------------------------------------------------------------------------------------
 rem install glassfish 4.1 full
-call ..\internal\set-program http://download.java.net/glassfish/4.1.2/release/glassfish-4.1.2.zip glassfish-4.1-full servers\glassfish GLASSFISH_HOME
+call ..\internal\set-program https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/4.1.2/glassfish-4.1.2.zip glassfish-4.1-full servers\glassfish GLASSFISH_HOME
 
 rem -----------------------------------------------------------------------------------------------------
 rem doc glassfish

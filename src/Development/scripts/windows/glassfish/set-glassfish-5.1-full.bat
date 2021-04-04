@@ -20,13 +20,14 @@ rem ----------------------------------------------------------------------------
 rem install java 8
 call ..\java\set-java-8-zulu
 
+
 rem -----------------------------------------------------------------------------------------------------
 rem install glassfish 5.1 full
-call ..\internal\set-program https://www.eclipse.org/downloads/download.php?file=/glassfish/glassfish-5.1.0.zip glassfish-5.1-full servers\glassfish GLASSFISH_HOME
+call ..\internal\set-program https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/5.1.0/glassfish-5.1.0.zip glassfish-5.1-full servers\glassfish GLASSFISH_HOME
 
 rem -----------------------------------------------------------------------------------------------------
 rem doc glassfish
-call %DEVELOPMENT_HOME%\scripts\glassfish\doc-glassfish
+call doc-glassfish
 
 rem go back 
 cd %back_glass%

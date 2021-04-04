@@ -4,7 +4,7 @@ set back_java=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for Zulu JDK 11
+echo Set the environment for Zulu JDK 16
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu11.29.3-ca-jdk11.0.2-win_x64.zip jdk11-zulu languages\java JAVA_HOME
+call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu11.29.3-ca-jdk11.0.2-win_x64.zip jdk16-zulu languages\java JAVA_HOME
 
 rem test it
 call java -version
@@ -45,7 +45,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\gradle\set-gradle-6.8
+rem call ..\gradle\set-gradle-6.8
 
 rem go back
 cd %back_java%

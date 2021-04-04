@@ -26,14 +26,15 @@ call ..\internal\get-extension extension %url% %final_name%
 rem -----------------------------------------------------------------------------------------------------
 rem is the program already installed?
 
-echo %DEVELOPMENT_HOME%\%dest%\%final_name%
+echo %DEVELOPMENT_HOME%\%dest%\%final_name%%extension%
 
 if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 
   rem is the file already download?
   if not exist %dev_folder_downloads%\%final_name%%extension% (
      rem download it!
-	 bitsadmin /transfer download /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto :error
+	 bitsadmin /reset
+	 bitsadmin /transfer "JobName" /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto :error
   )
 	
   rem if it's a compressed file?
