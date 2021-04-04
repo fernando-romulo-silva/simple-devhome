@@ -1,6 +1,6 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_maven=%cd%
 cd %DEVELOPMENT_HOME%\scripts\maven
 
 echo ==============================================================================================================================
@@ -31,7 +31,7 @@ rem Test it
 call mvn -version 
 
 rem go back
-cd %back%
+cd %back_maven%
 
 echo ==============================================================================================================================
 :exit

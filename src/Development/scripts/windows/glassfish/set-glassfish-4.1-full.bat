@@ -26,7 +26,7 @@ call ..\internal\set-program https://repo1.maven.org/maven2/org/glassfish/main/d
 
 rem -----------------------------------------------------------------------------------------------------
 rem doc glassfish
-call %DEVELOPMENT_HOME%\scripts\glassfish\doc-glassfish
+call doc-glassfish
 
 rem go back 
 cd %back_glass%

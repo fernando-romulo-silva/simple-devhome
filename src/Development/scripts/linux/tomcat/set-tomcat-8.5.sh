@@ -22,7 +22,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install tomcat 8.5
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.zip apache-tomcat-8.5 servers/apache-tomcat CATALINA_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://downloads.apache.org/tomcat/tomcat-8/v8.5.64/bin/apache-tomcat-8.5.64.zip apache-tomcat-8.5 servers/apache-tomcat CATALINA_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc tomcat

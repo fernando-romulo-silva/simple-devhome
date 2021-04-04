@@ -1,6 +1,6 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_maven=%cd%
 cd %DEVELOPMENT_HOME%\scripts\maven
 
 echo ==============================================================================================================================
@@ -18,7 +18,7 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem check JAVA_HOME
-if %JAVA_HOME%=="" (
+if %JAVA_HOME% == "" (
    echo Java home, JAVA_HOME, is not configured, please configure it.
    exit /B 
 )
@@ -31,7 +31,7 @@ rem Test it
 call mvn -version 
 
 rem go back
-cd %back%
+cd %back_maven%
 
 echo ==============================================================================================================================
 :exit
