@@ -24,6 +24,8 @@ rem ----------------------------------------------------------------------------
 rem install Tomcat 8.5
 call ..\internal\set-program https://downloads.apache.org/tomcat/tomcat-8/v8.5.64/bin/apache-tomcat-8.5.64.zip apache-tomcat-8.5 servers\apache-tomcat CATALINA_HOME
 
+rem -----------------------------------------------------------------------------------------------------
+rem doc Tomcat
 call doc-tomcat
 
 rem go back 

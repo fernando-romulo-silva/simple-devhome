@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
-set back_glass=%cd%
-cd %DEVELOPMENT_HOME%\scripts\glassfish
+set bac_pay=%cd%
+cd %DEVELOPMENT_HOME%\scripts\payara
 
 echo ==============================================================================================================================
-echo Set the Environment for Glassfish 5.1 Full Profile (JEE 8)
+echo Set the Environment for Payara 5.2 Full Profile (JEE 9)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -17,19 +17,19 @@ if /I "%var1:error=%" neq "%var1%" (
 ) 
 
 rem -----------------------------------------------------------------------------------------------------
-rem install java 8
-call ..\java\set-java-8-zulu
+rem install java 11
+call ..\java\set-java-11-zulu
 
 rem -----------------------------------------------------------------------------------------------------
-rem install glassfish 5.1 full
-call ..\internal\set-program https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/5.1.0/glassfish-5.1.0.zip glassfish-5.1-full servers\glassfish GLASSFISH_HOME
+rem install Payara 5.2 Full
+call ..\internal\set-program https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/5.2021.1/payara-5.2021.1.zip payara-5.2-full servers\payara PAYARA_HOME
 
 rem -----------------------------------------------------------------------------------------------------
-rem doc glassfish
-call doc-glassfish
+rem doc Payara
+call doc-payara
 
 rem go back 
-cd %back_glass%
+cd %bac_pay%
 
 echo ==============================================================================================================================
 :exit

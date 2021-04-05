@@ -1,6 +1,6 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_java=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
@@ -24,7 +24,9 @@ rem Test it
 call java -version
 
 rem go back
-cd %back%
+cd %back_java%
+
+echo(
 
 echo ==============================================================================================================================
 :exit

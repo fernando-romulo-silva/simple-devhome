@@ -1,6 +1,6 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_wild=%cd%
 cd %DEVELOPMENT_HOME%\scripts\wildfly
 
 echo ==============================================================================================================================
@@ -24,8 +24,12 @@ rem ----------------------------------------------------------------------------
 rem install wildfly 15 Full
 call ..\internal\set-program https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0 servers\wildfly WILDFLY_HOME
 
+rem -----------------------------------------------------------------------------------------------------
+rem doc Wildfly
+call doc-wildfly
+
 rem go back 
-cd %back%
+cd %back_wild%
 
 echo ==============================================================================================================================
 :exit

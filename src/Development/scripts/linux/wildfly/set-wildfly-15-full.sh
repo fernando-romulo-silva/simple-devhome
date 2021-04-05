@@ -4,7 +4,7 @@ back_wild=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/wildfly
 
 echo "=============================================================================================================================="
-echo "Set the environment for Wildfly-15 Full Profile"
+echo "Set the Environment for Wildfly 15 Full Profile (JEE 8)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable

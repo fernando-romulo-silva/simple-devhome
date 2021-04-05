@@ -22,7 +22,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install glassfish 5.0
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://download.java.net/glassfish/5.0/release/javaee8-ri.zip glassfish-5.0-full servers/glassfish GLASSFISH_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/5.0.1/glassfish-5.0.1.zip glassfish-5.0-full servers/glassfish GLASSFISH_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc glassfish

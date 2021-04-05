@@ -1,6 +1,6 @@
 #!/bin/bash
 # go to script dir
-back=$(pwd)
+back_java=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
@@ -27,6 +27,6 @@ echo "Don't forget to put the hotswap-agent.properties on your classpath (src/ma
 echo " "
 
 # go back
-cd $back
+cd $back_java
 
 echo "=============================================================================================================================="

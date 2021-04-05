@@ -22,7 +22,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install glassfish 4.1
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://download.java.net/glassfish/4.1.2/release/glassfish-4.1.2.zip glassfish-4.1-full servers/glassfish GLASSFISH_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/4.1.2/glassfish-4.1.2.zip glassfish-4.1-full servers/glassfish GLASSFISH_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc glassfish

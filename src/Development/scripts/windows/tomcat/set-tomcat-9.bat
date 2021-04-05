@@ -1,6 +1,6 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_tom=%cd%
 cd %DEVELOPMENT_HOME%\scripts\tomcat
 
 echo ==============================================================================================================================
@@ -18,14 +18,18 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java 8
-call ..\java\set-java-8
+call ..\java\set-java-8-zulu
 
 rem -----------------------------------------------------------------------------------------------------
 rem install Tomcat 9.0
 call ..\internal\set-program http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.zip apache-tomcat-9.0 servers\apache-tomcat CATALINA_HOME
 
+rem -----------------------------------------------------------------------------------------------------
+rem doc Tomcat
+call doc-tomcat
+
 rem go back 
-cd %back%
+cd %back_tom%
 
 echo ==============================================================================================================================
 :exit
