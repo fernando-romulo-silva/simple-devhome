@@ -22,7 +22,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install tomcat 10
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://downloads.apache.org/tomcat/tomcat-10/v10.0.5/bin/apache-tomcat-10.0.5.tar.gz apache-tomcat-10.0 servers/apache-tomcat CATALINA_HOME
+. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://mirror.nbtelecom.com.br/apache/tomcat/tomcat-10/v10.0.6/bin/apache-tomcat-10.0.6.tar.gz apache-tomcat-10.0 servers/apache-tomcat CATALINA_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc tomcat
