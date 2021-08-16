@@ -63,7 +63,7 @@ start-development-folder.bat
 Just execute on terminal:
 
 ```bash
-# for linux users
+# for linux users:
 ## configure java 8, apache-ant-1.10.5, apache-maven-3.6.0 and gradle-5.1.1
  . set-java-zulu-8.sh
 
