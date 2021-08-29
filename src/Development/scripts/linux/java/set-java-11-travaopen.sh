@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.1+7/java11-openjdk-dcevm-linux.tar.gz jdk11-travaopen languages/java JAVA_HOME
+source ../internal/set-program.sh https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.1+7/java11-openjdk-dcevm-linux.tar.gz jdk11-travaopen languages/java JAVA_HOME
 
 # Test it
 java -version

@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu11.29.3-ca-jdk11.0.2-linux_x64.tar.gz jdk11-zulu languages/java JAVA_HOME
+source ../internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu11.29.3-ca-jdk11.0.2-linux_x64.tar.gz jdk11-zulu languages/java JAVA_HOME
 
 # Test it
 java -version
@@ -28,21 +28,21 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install ant
-. $DEVELOPMENT_HOME/scripts/set-ant-1.10.sh
+source ../set-ant-1.10.sh
 
 echo " "
 echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install maven
-. $DEVELOPMENT_HOME/scripts/set-maven-3.6.sh
+source ../set-maven-3.6.sh
 
 echo " "
 echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-. $DEVELOPMENT_HOME/scripts/set-gradle-6.8.sh
+source ../set-gradle-6.8.sh
 
 # go back
 cd $back_java

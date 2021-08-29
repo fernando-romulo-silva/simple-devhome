@@ -18,15 +18,15 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java 11
-. $DEVELOPMENT_HOME/scripts/set-java-11-zulu.sh
+source ../set-java-11-zulu.sh
 
 # -----------------------------------------------------------------------------------------------------
 # install tomcat 10
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://mirror.nbtelecom.com.br/apache/tomcat/tomcat-10/v10.0.6/bin/apache-tomcat-10.0.6.tar.gz apache-tomcat-10.0 servers/apache-tomcat CATALINA_HOME
+source ../internal/set-program.sh https://mirror.nbtelecom.com.br/apache/tomcat/tomcat-10/v10.0.6/bin/apache-tomcat-10.0.6.tar.gz apache-tomcat-10.0 servers/apache-tomcat CATALINA_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc tomcat
-. $DEVELOPMENT_HOME/scripts/tomcat/doc-tomcat.sh
+source ../tomcat/doc-tomcat.sh
 
 # go back
 cd $back_tom

@@ -18,15 +18,15 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java 6
-. $DEVELOPMENT_HOME/scripts/set-java-6-zulu.sh
+source ../set-java-6-zulu.sh
 
 # -----------------------------------------------------------------------------------------------------
 # install tomcat 7
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-7/v7.0.92/bin/apache-tomcat-7.0.92.zip apache-tomcat-7.0 servers/apache-tomcat CATALINA_HOME
+source ../internal/set-program.sh http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-7/v7.0.92/bin/apache-tomcat-7.0.92.zip apache-tomcat-7.0 servers/apache-tomcat CATALINA_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc tomcat
-. $DEVELOPMENT_HOME/scripts/tomcat/doc-tomcat.sh
+source ../tomcat/doc-tomcat.sh
 
 # go back
 cd $back_tom

@@ -25,7 +25,10 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install ant
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://downloads.apache.org//ant/binaries/apache-ant-1.9.15-bin.zip apache-ant-1.9.15 tools/apache-ant ANT_HOME
+source ../internal/set-program.sh https://downloads.apache.org//ant/binaries/apache-ant-1.9.15-bin.zip apache-ant-1.9.15 tools/apache-ant ANT_HOME
+
+export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
+export ANT_OPTS="-Xms256M -Xmx512M"
 
 # Test it
 ant -version

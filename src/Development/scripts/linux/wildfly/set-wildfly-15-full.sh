@@ -18,15 +18,15 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java 11
-. $DEVELOPMENT_HOME/scripts/java/set-java-11-zulu.sh
+source ../java/set-java-11-zulu.sh
 
 # -----------------------------------------------------------------------------------------------------
 # install wildfly-15
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0-full servers/wildfly WILDFLY_HOME
+source ../internal/set-program.sh https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0-full servers/wildfly WILDFLY_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc Wildfly
-. $DEVELOPMENT_HOME/scripts/wildfly/doc-wildfly.sh
+source ../wildfly/doc-wildfly.sh
 
 # go back
 cd $back_wild

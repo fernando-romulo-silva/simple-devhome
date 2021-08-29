@@ -42,7 +42,7 @@ for d in *; do
        cd $d
 
        for f in *.sh; do
-           echo ". $DEVELOPMENT_HOME/scripts/$d/$f" > $DEVELOPMENT_HOME/scripts/$f           
+           echo "source $DEVELOPMENT_HOME/scripts/$d/$f" > $DEVELOPMENT_HOME/scripts/$f           
            chmod +x $DEVELOPMENT_HOME/scripts/$d/$f
            chmod +x $DEVELOPMENT_HOME/scripts/$f
            ln -f -s $DEVELOPMENT_HOME/scripts/$f $HOME/.local/bin/$f

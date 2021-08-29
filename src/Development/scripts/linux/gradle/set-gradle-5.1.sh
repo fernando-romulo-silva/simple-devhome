@@ -25,7 +25,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools/gradle GRADLE_HOME
+source ../internal/set-program.sh https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools/gradle GRADLE_HOME
 
 # Test it
 gradle -v

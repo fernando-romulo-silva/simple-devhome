@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # download and install zip, tar.gz and other files
 url="$1"
 final_name="$2"

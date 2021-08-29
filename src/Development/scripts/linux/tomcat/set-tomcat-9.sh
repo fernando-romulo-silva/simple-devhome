@@ -18,15 +18,15 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java 8
-. $DEVELOPMENT_HOME/scripts/set-java-8-zulu.sh
+source ../set-java-8-zulu.sh
 
 # -----------------------------------------------------------------------------------------------------
 # install tomcat 9
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://downloads.apache.org/tomcat/tomcat-9/v9.0.45/bin/apache-tomcat-9.0.45.tar.gz apache-tomcat-9.0 servers/apache-tomcat CATALINA_HOME
+source ../internal/set-program.sh https://downloads.apache.org/tomcat/tomcat-9/v9.0.45/bin/apache-tomcat-9.0.45.tar.gz apache-tomcat-9.0 servers/apache-tomcat CATALINA_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc tomcat
-. $DEVELOPMENT_HOME/scripts/tomcat/doc-tomcat.sh
+source ../tomcat/doc-tomcat.sh
 
 # go back
 cd $back_tom

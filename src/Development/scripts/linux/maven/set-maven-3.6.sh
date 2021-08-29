@@ -25,7 +25,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install maven
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip apache-maven-3.6.3 tools/apache-maven M2_HOME
+source ../internal/set-program.sh https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip apache-maven-3.6.3 tools/apache-maven M2_HOME
 
 # Test it
 mvn -version

@@ -18,15 +18,15 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java 8
-. $DEVELOPMENT_HOME/scripts/java/set-java-8-zulu.sh
+source ../java/set-java-8-zulu.sh
 
 # -----------------------------------------------------------------------------------------------------
 # install glassfish 5.0
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/5.0.1/glassfish-5.0.1.zip glassfish-5.0-full servers/glassfish GLASSFISH_HOME
+source ../internal/set-program.sh https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/5.0.1/glassfish-5.0.1.zip glassfish-5.0-full servers/glassfish GLASSFISH_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc glassfish
-. $DEVELOPMENT_HOME/scripts/glassfish/doc-glassfish.sh
+source ../glassfish/doc-glassfish.sh
 
 # go back
 cd $back_glass

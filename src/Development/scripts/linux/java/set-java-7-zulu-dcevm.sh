@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh http://cdn-files.evildayz.com/mirror/java/jdk_7u79/jdk-7u79-linux-x64.tar.gz jdk7-zulu-dcevm languages/java JAVA_HOME
+source ../internal/set-program.sh http://cdn-files.evildayz.com/mirror/java/jdk_7u79/jdk-7u79-linux-x64.tar.gz jdk7-zulu-dcevm languages/java JAVA_HOME
 
 # Test it
 java -version
@@ -28,7 +28,7 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install DCEVM
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/dcevm/dcevm/releases/download/full-jdk7u79+8/DCEVM-full-7u79-installer.jar DCEVM-full-7 tools/DCEVM
+source ../internal/set-program.sh https://github.com/dcevm/dcevm/releases/download/full-jdk7u79+8/DCEVM-full-7u79-installer.jar DCEVM-full-7 tools/DCEVM
 
 # backup the libjvm.so file
 mv -vn $JAVA_HOME/jre/lib/amd64/server/libjvm.so $JAVA_HOME/jre/lib/amd64/server/libjvm.so.backup 
@@ -41,7 +41,7 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install HotswapAgent
-. $DEVELOPMENT_HOME/scripts/internal/set-program.sh https://github.com/HotswapProjects/HotswapAgent/releases/download/RELEASE-1.3.0/hotswap-agent-1.3.0.jar hotswap-agent-1.3.0 tools/HotswapAgent
+source ../internal/set-program.sh https://github.com/HotswapProjects/HotswapAgent/releases/download/RELEASE-1.3.0/hotswap-agent-1.3.0.jar hotswap-agent-1.3.0 tools/HotswapAgent
 
 echo "To use hotswap agent, launch your application server with options: -javaagent:'path_to_jar_file'/hotswap-agent-1.3.0.jar"
 echo "Don't forget to put the hotswap-agent.properties on your classpath (src/main/reshs)"
