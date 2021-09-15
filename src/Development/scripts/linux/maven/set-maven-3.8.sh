@@ -1,10 +1,10 @@
 #!/bin/bash
 # go to script dir
-back_gradle=$(pwd)
-cd $DEVELOPMENT_HOME/scripts/gradle
+back_maven=$(pwd)
+cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for Gradle 6.8 (JDK 11+)"
+echo "Set the environment for Maven 3.8 (JDK 8+)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -24,13 +24,13 @@ if [[ -z "${JAVA_HOME}" ]] ; then
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install gradle
-source ../internal/set-program.sh https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools/gradle GRADLE_HOME
+# install maven
+source ../internal/set-program.sh https://archive.apache.org/dist/maven/maven-3/3.8.2/binaries/apache-maven-3.8.2-bin.zip apache-maven-3.8.2 tools/apache-maven M2_HOME
 
 # Test it
-gradle -v
+mvn -version
 
 # go back
-cd $back_gradle
+cd $back_maven
 
 echo "=============================================================================================================================="
