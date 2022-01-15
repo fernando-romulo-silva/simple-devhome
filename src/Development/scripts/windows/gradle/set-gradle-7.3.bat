@@ -4,7 +4,7 @@ set back=%cd%
 cd %DEVELOPMENT_HOME%\scripts\gradle
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 6.8 (JDK 11+)
+echo Set the environment for Gradle 7.3 (JDK 17)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -25,7 +25,7 @@ if %JAVA_HOME% == "" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-6.8.3-bin.zip gradle-6.8.3 tools\gradle GRADLE_HOME
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-7.3.3-bin.zip gradle-7.3.3 tools\gradle GRADLE_HOME
 
 rem Test it
 call gradle -v

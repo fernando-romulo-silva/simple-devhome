@@ -4,7 +4,7 @@ back_gradle=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/gradle
 
 echo "=============================================================================================================================="
-echo "Set the environment for Gradle 6.9 (JDK 11+)"
+echo "Set the environment for Gradle 6.9 (JDK 11)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -25,7 +25,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-source ../internal/set-program.sh https://downloads.gradle-dn.com/distributions/gradle-6.9.1-bin.zip gradle-6.9.1 tools/gradle GRADLE_HOME
+source ../internal/set-program.sh https://downloads.gradle-dn.com/distributions/gradle-6.9.2-bin.zip gradle-6.9.2 tools/gradle GRADLE_HOME
 
 # Test it
 gradle -v

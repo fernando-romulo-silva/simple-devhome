@@ -1,10 +1,10 @@
 #!/bin/bash
 # go to script dir
-back_java=$(pwd)
-cd $DEVELOPMENT_HOME/scripts/java
+back_gradle=$(pwd)
+cd $DEVELOPMENT_HOME/scripts/gradle
 
 echo "=============================================================================================================================="
-echo "Set the environment for Graal JDK 11"
+echo "Set the environment for Gradle 7.3 (JDK 17)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -17,34 +17,20 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java
-source ../internal/set-program.sh https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.0.0.2/graalvm-ce-java11-linux-amd64-21.0.0.2.tar.gz jdk11-graalvm languages/java JAVA_HOME
-
-# Test it
-java -version
-
-echo " "
-echo " "
-
-# -----------------------------------------------------------------------------------------------------
-# install ant
-source ../set-ant-1.10.sh
-
-echo " "
-echo " "
-
-# -----------------------------------------------------------------------------------------------------
-# install maven
-source ../set-maven-3.6.sh
-
-echo " "
-echo " "
+# check the JAVA_HOME variable
+if [[ -z "${JAVA_HOME}" ]] ; then
+  echo "Java home, JAVA_HOME, is not configured, please configure it."
+  exit 1
+fi
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-source ../set-gradle-6.9.sh
+source ../internal/set-program.sh https://downloads.gradle-dn.com/distributions/gradle-7.3.3-bin.zip gradle-7.3.3 tools/gradle GRADLE_HOME
+
+# Test it
+gradle -v
 
 # go back
-cd $back_java
+cd $back_gradle
 
 echo "=============================================================================================================================="
