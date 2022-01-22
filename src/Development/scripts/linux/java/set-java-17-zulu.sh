@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-source ../internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu17.28.13-ca-jdk17.0.0-linux_x64.tar.gz jdk17-zulu languages/java JAVA_HOME
+source ../internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu17.32.13-ca-jdk17.0.2-linux_x64.zip jdk17-zulu languages/java JAVA_HOME
 
 # Test it
 java -version
