@@ -4,7 +4,7 @@ back_java=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for Zulu JDK 17"
+echo "Set the environment for Oracle Hotspot JDK 17"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -18,11 +18,11 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-source ../internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu17.32.13-ca-jdk17.0.2-linux_x64.zip jdk17-zulu languages/java JAVA_HOME
+source ../internal/set-program.sh https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz jdk17-oracle-hotspot languages/java JAVA_HOME
 
 # Test it
 java -version
-
+a
 echo " "
 echo " "
 

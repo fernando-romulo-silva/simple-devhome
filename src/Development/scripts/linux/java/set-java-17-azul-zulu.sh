@@ -4,7 +4,7 @@ back_java=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for Zulu JDK 6"
+echo "Set the environment for Azul Zulu JDK 17"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-source ../internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu6.22.0.3-jdk6.0.119-linux_x64.tar.gz jdk6-zulu languages/java JAVA_HOME
+source ../internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu17.32.13-ca-jdk17.0.2-linux_x64.zip jdk17-azul-zulu languages/java JAVA_HOME
 
 # Test it
 java -version
@@ -28,21 +28,21 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install ant
-source ../set-ant-1.9.sh
+source ../set-ant-1.10.sh
 
 echo " "
 echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install maven
-source ../set-maven-3.2.sh
+source ../set-maven-3.8.sh
 
 echo " "
 echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-source ../set-gradle-2.14.sh
+source ../set-gradle-7.3.sh
 
 # go back
 cd $back_java

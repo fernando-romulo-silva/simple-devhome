@@ -1,10 +1,10 @@
 #!/bin/bash
 # go to script dir
-back_maven=$(pwd)
+back_java=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for Maven 3.6 (JDK 8+)"
+echo "Set the environment for Azul Zulu JDK 6"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -17,20 +17,34 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# check the JAVA_HOME variable
-if [[ -z "${JAVA_HOME}" ]] ; then
-  echo "Java home, JAVA_HOME, is not configured, please configure it."
-  exit 1
-fi
+# install java
+source ../internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu6.22.0.3-jdk6.0.119-linux_x64.tar.gz jdk6-azul-zulu languages/java JAVA_HOME
+
+# Test it
+java -version
+
+echo " "
+echo " "
+
+# -----------------------------------------------------------------------------------------------------
+# install ant
+source ../set-ant-1.9.sh
+
+echo " "
+echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install maven
-source ../internal/set-program.sh https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip apache-maven-3.6.3 tools/apache-maven M2_HOME
+source ../set-maven-3.2.sh
 
-# Test it
-mvn -version
+echo " "
+echo " "
+
+# -----------------------------------------------------------------------------------------------------
+# install gradle
+source ../set-gradle-2.14.sh
 
 # go back
-cd $back_maven
+cd $back_java
 
 echo "=============================================================================================================================="

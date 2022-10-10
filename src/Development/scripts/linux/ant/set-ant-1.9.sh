@@ -24,6 +24,14 @@ if [[ -z "${JAVA_HOME}" ]] ; then
 fi
 
 # -----------------------------------------------------------------------------------------------------
+# check Java 6 or Java 7
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION == 1.6 || $JAVA_MAJOR_VERSION == 1.7 ]]; then
+  echo "Java 6 or Java 7 is required!"
+  exit 1
+fi
+
+# -----------------------------------------------------------------------------------------------------
 # install ant
 source ../internal/set-program.sh https://downloads.apache.org//ant/binaries/apache-ant-1.9.15-bin.zip apache-ant-1.9.15 tools/apache-ant ANT_HOME
 
