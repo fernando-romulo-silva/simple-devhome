@@ -17,8 +17,12 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java 6
-source ../set-java-6-zulu.sh
+# check Java
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION != 1.6 ]]; then
+  echo "Java 6 is required!"
+  exit 1
+fi
 
 # -----------------------------------------------------------------------------------------------------
 # install tomcat 7

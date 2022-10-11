@@ -1,10 +1,10 @@
 #!/bin/bash
 # go to script dir
-back_ant=$(pwd)
-cd $DEVELOPMENT_HOME/scripts/ant
+back_wild=$(pwd)
+cd $DEVELOPMENT_HOME/scripts/wildfly
 
 echo "=============================================================================================================================="
-echo "Set the environment for Ant 1.9 (JDK 6, JDK 7)"
+echo "Set the Environment for Wildfly 26.1 Full Profile (JEE 8)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -24,24 +24,22 @@ if [[ -z "${JAVA_HOME}" ]] ; then
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# check Java 6 or Java 7
+# check Java 11+
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
-if [[ $JAVA_MAJOR_VERSION != 1.6 || $JAVA_MAJOR_VERSION != 1.7 ]]; then
-  echo "Java 6 or Java 7 is required!"
+if [[ $JAVA_MAJOR_VERSION -lt 11 ]]; then
+  echo "Java 11 or higher is required!"
   exit 1
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install ant
-source ../internal/set-program.sh https://dlcdn.apache.org//ant/binaries/apache-ant-1.9.16-bin.zip apache-ant-1.9.15 tools/apache-ant ANT_HOME
+# install wildfly-26.1
+source ../internal/set-program.sh https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-26.1.2.Final.zip wildfly-26.1-full servers/wildfly WILDFLY_HOME
 
-export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
-export ANT_OPTS="-Xms256M -Xmx512M"
-
-# Test it
-ant -version
+# -----------------------------------------------------------------------------------------------------
+# doc Wildfly
+source ../wildfly/doc-wildfly.sh
 
 # go back
-cd $back_ant
+cd $back_wild
 
 echo "=============================================================================================================================="

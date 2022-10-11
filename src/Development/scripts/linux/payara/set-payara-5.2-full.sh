@@ -17,13 +17,17 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java 11
-source ../java/set-java-11-zulu.sh
+# check Java 11+
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION -lt 11 ]]; then
+  echo "Java 11 or higher is required!"
+  exit 1
+fi
 
 # -----------------------------------------------------------------------------------------------------
 # install Payara 5.2
-source ../internal/set-program.sh https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/5.2021.1/payara-5.2021.1.zip payara-5.2-full servers/payara PAYARA_HOME
-
+source ../internal/set-program.sh https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/5.2022.3/payara-5.2022.3.zip payara-5.2-full servers/payara PAYARA_HOME
+                                  
 # -----------------------------------------------------------------------------------------------------
 # doc Payara
 source ../payara/doc-payara.sh

@@ -4,7 +4,7 @@ back_jetty=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/jetty
 
 echo "=============================================================================================================================="
-echo "Set the environment for Jetty 9.4"
+echo "Set the environment for Jetty 9.4 (JEE 7 Web = Servlet 3.1, JSP 2.3, EL 3.0, WebSocket 1.1, Authentication (JASIC) 1.1)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -17,8 +17,12 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java 8
-source ../java/set-java-8-zulu.sh
+# check Java 8+
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION -lt 8 ]]; then
+  echo "Java 8 or higher is required!"
+  exit 1
+fi
 
 # -----------------------------------------------------------------------------------------------------
 # install jett 9.4

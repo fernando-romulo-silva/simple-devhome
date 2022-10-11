@@ -17,8 +17,19 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java 11
-source ../set-java-11-zulu.sh
+# check the JAVA_HOME variable
+if [[ -z "${JAVA_HOME}" ]] ; then
+  echo "Java home, JAVA_HOME, is not configured, please configure it."
+  exit 1
+fi
+
+# -----------------------------------------------------------------------------------------------------
+# check Java 11+
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION -lt 11 ]]; then
+  echo "Java 11 or higher is required!"
+  exit 1
+fi
 
 # -----------------------------------------------------------------------------------------------------
 # install tomcat 10

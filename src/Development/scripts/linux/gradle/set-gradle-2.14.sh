@@ -24,6 +24,14 @@ if [[ -z "${JAVA_HOME}" ]] ; then
 fi
 
 # -----------------------------------------------------------------------------------------------------
+# check Java
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION != 1.6 ]]; then
+  echo "Java 6 is required!"
+  exit 1
+fi
+
+# -----------------------------------------------------------------------------------------------------
 # install gradle
 source ../internal/set-program.sh https://services.gradle.org/distributions/gradle-2.14.1-bin.zip gradle-2.14.1 tools/gradle GRADLE_HOME
 

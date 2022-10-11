@@ -5,6 +5,7 @@ cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
 echo "Set the environment for JetBrains JBR JDK 17 (Open Jdk 17 with Dcevm-Full and HotswapAgent)"
+echo "Don't forget to run your application with JBR using additional options '-XX:+AllowEnhancedClassRedefinition -XX:HotswapAgent=fatjar'"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable

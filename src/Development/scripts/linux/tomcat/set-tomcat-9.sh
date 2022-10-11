@@ -17,8 +17,12 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java 8
-source ../set-java-8-zulu.sh
+# check Java
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION != 8 ]]; then
+  echo "Java 8 is required!"
+  exit 1
+fi
 
 # -----------------------------------------------------------------------------------------------------
 # install tomcat 9

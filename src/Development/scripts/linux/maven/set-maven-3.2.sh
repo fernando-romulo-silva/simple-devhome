@@ -24,6 +24,14 @@ if [[ -z "${JAVA_HOME}" ]] ; then
 fi
 
 # -----------------------------------------------------------------------------------------------------
+# check Java 6
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION != 1.6 ]]; then
+  echo "Java 6 is required!"
+  exit 1
+fi
+
+# -----------------------------------------------------------------------------------------------------
 # install maven
 source ../internal/set-program.sh https://archive.apache.org/dist/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.zip apache-maven-3.2.5 tools/apache-maven M2_HOME
 
