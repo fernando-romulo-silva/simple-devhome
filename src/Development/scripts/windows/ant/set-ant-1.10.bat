@@ -24,6 +24,27 @@ if %JAVA_HOME% == "" (
 )
 
 rem -----------------------------------------------------------------------------------------------------
+rem check Java version
+set JAVA_VERSION=0
+for /f "tokens=3" %%g in ('java -Xms32M -Xmx32M -version 2^>^&1 ^| findstr /i "version"') do (
+  set JAVA_VERSION=%%g
+)
+
+set JAVA_VERSION=%JAVA_VERSION:"=%
+for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
+  if /I "%%v" EQU "1" (
+    set JAVA_VERSION=%%w
+  ) else (
+    set JAVA_VERSION=%%v
+  )
+)
+
+if %JAVA_VERSION% LSS 8 (
+	echo Java 8 or higher is required!
+    exit /B	
+) 
+
+rem -----------------------------------------------------------------------------------------------------
 rem install ant
 call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
 
