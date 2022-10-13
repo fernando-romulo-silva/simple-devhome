@@ -8,7 +8,7 @@ echo $DEVELOPMENT_HOME
 result=$(scripts/linux/internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
-  exit 1
+  return 0
 else
   echo $result
 fi

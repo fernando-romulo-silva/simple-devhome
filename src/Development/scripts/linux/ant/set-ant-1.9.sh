@@ -11,7 +11,7 @@ echo "Set the environment for Ant 1.9 (JDK 6, JDK 7)"
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
-  exit 1
+  return 0
 else
   echo $result
 fi
@@ -20,15 +20,16 @@ fi
 # check the JAVA_HOME variable
 if [[ -z "${JAVA_HOME}" ]] ; then
   echo "Java home, JAVA_HOME, is not configured, please configure it."
-  exit 1
+  return 0
 fi
 
 # -----------------------------------------------------------------------------------------------------
 # check Java 6 or Java 7
+
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
-if [[ $JAVA_MAJOR_VERSION != 1.6 || $JAVA_MAJOR_VERSION != 1.7 ]]; then
+if [[ $JAVA_MAJOR_VERSION != 6 && $JAVA_MAJOR_VERSION != 7 ]]; then
   echo "Java 6 or Java 7 is required!"
-  exit 1
+  return 0
 fi
 
 # -----------------------------------------------------------------------------------------------------

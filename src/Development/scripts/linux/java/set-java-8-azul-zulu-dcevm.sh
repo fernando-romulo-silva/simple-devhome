@@ -11,7 +11,7 @@ echo "Set the environment for Azul Zulu JDK 8 with DCEVM-Light and HotswapAgent"
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
-  exit 1
+  return 0
 else
   echo $result
 fi

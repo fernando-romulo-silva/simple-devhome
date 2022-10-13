@@ -11,7 +11,7 @@ echo "Set the environment for Payara 5.2 Full Profile (JEE 9)"
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
-  exit 1
+  return 0
 else
   echo $result
 fi
@@ -21,7 +21,7 @@ fi
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
 if [[ $JAVA_MAJOR_VERSION -lt 11 ]]; then
   echo "Java 11 or higher is required!"
-  exit 1
+  return 0
 fi
 
 # -----------------------------------------------------------------------------------------------------

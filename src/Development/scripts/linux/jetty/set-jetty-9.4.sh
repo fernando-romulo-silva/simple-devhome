@@ -11,7 +11,7 @@ echo "Set the environment for Jetty 9.4 (JEE 7 Web = Servlet 3.1, JSP 2.3, EL 3.
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
-  exit 1
+  return 0
 else
   echo $result
 fi
@@ -21,7 +21,7 @@ fi
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
 if [[ $JAVA_MAJOR_VERSION -lt 8 ]]; then
   echo "Java 8 or higher is required!"
-  exit 1
+  return 0
 fi
 
 # -----------------------------------------------------------------------------------------------------

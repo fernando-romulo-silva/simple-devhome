@@ -11,7 +11,7 @@ echo "Set the environment for Travis Trava JDK 11 (Open Jdk 11 with Dcevm-Full a
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
-  exit 1
+  return 0
 else
   echo $result
 fi

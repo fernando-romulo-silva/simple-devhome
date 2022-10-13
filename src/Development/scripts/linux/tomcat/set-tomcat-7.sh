@@ -11,7 +11,7 @@ echo "Set the Environment for Tomcat 7.0 (JEE 6 Web = Servlet 3.0, JSP 2.2, EL 2
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
-  exit 1
+  return 0
 else
   echo $result
 fi
@@ -19,9 +19,9 @@ fi
 # -----------------------------------------------------------------------------------------------------
 # check Java
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
-if [[ $JAVA_MAJOR_VERSION != 1.6 ]]; then
+if [[ $JAVA_MAJOR_VERSION != 6 ]]; then
   echo "Java 6 is required!"
-  exit 1
+  return 0
 fi
 
 # -----------------------------------------------------------------------------------------------------
