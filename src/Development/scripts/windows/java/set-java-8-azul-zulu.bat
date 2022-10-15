@@ -32,7 +32,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install maven
-call ..\maven\set-maven-3.6
+call ..\maven\set-maven-3.8
 
 echo(
 echo( 

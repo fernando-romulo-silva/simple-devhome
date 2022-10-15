@@ -4,7 +4,7 @@ set back=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for Zulu JDK 7 with DCEVM-Full and HotswapAgent
+echo Set the environment for Azul Zulu JDK 8 with DCEVM-Light and HotswapAgent
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable

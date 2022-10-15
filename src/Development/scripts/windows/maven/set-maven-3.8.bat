@@ -4,7 +4,7 @@ set back_maven=%cd%
 cd %DEVELOPMENT_HOME%\scripts\maven
 
 echo ==============================================================================================================================
-echo Set the environment for Maven 3.6 (JDK 8+)
+echo Set the environment for Maven 3.8 (JDK 8+)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -25,7 +25,7 @@ if %JAVA_HOME% == "" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install maven
-call ..\internal\set-program https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip apache-maven-3.6.3 tools\apache-maven M2_HOME
+call ..\internal\set-program https://archive.apache.org/dist/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip apache-maven-3.8.6 tools\apache-maven M2_HOME
 
 rem Test it
 call mvn -version 

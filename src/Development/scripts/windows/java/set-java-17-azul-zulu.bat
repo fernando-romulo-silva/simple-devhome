@@ -38,14 +38,14 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install maven
-call ..\maven\set-maven-3.6
+call ..\maven\set-maven-3.8
 
 echo(
 echo( 
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-rem call ..\gradle\set-gradle-6.8
+call ..\gradle\set-gradle-7.5
 
 rem go back
 cd %back_java%
