@@ -4,7 +4,7 @@ set back_java=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for Zulu JDK 6
+echo Set the environment for Azul Zulu JDK 6
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu6.22.0.3-jdk6.0.119-win_x64.zip jdk6-zulu languages\java JAVA_HOME
+call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu6.22.0.3-jdk6.0.119-win_x64.zip jdk6-azul-zulu languages\java JAVA_HOME
 
 rem Test it
 call java -version

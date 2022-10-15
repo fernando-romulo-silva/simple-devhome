@@ -4,7 +4,7 @@ set back=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for Zulu JDK 7 with DCEVM-Full and HotswapAgent
+echo Set the environment for Azul Zulu JDK 7 with DCEVM-Full and HotswapAgent
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program http://installbuilder.bitrock.com/java/jdk1.7.0_79-windows-x64.zip jdk7-zulu-dcevm languages\java JAVA_HOME
+call ..\internal\set-program http://installbuilder.bitrock.com/java/jdk1.7.0_79-windows-x64.zip jdk7-azul-zulu-dcevm languages\java JAVA_HOME
 
 rem Test it
 call java -version

@@ -1,48 +1,37 @@
 @echo off
 rem go to script dir
-set back_java=%cd%
-cd %DEVELOPMENT_HOME%\scripts\java
+set back=%cd%
+cd %DEVELOPMENT_HOME%\scripts\gradle
 
 echo ==============================================================================================================================
-echo Set the environment for Zulu JDK 8
+echo Set the environment for Gradle 7.5 (JDK 17)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    goto exit
+    exit /B 
 ) else (
  	echo %var1%
-) 
+)
 
 rem -----------------------------------------------------------------------------------------------------
-rem install java
-call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu8.34.0.1-ca-jdk8.0.201-win_x64.zip jdk8-zulu languages\java JAVA_HOME
-
-echo(
-echo(
-
-rem -----------------------------------------------------------------------------------------------------
-rem install ant
-call ..\ant\set-ant-1.10
-
-echo(
-echo(
-
-rem -----------------------------------------------------------------------------------------------------
-rem install maven
-call ..\maven\set-maven-3.6
-
-echo(
-echo( 
+rem check JAVA_HOME
+if %JAVA_HOME% == "" (
+   echo Java home, JAVA_HOME, is not configured, please configure it.
+   exit /B 
+)
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\gradle\set-gradle-5.1
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-7.5.1-bin.zip gradle-7.5.1 tools\gradle GRADLE_HOME
+
+rem Test it
+call gradle -v
 
 rem go back
-cd %back_java%
+cd %back%
 
 echo ==============================================================================================================================
 :exit

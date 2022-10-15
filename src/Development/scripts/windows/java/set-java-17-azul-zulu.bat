@@ -4,7 +4,7 @@ set back_java=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for Trava Open JDK 11 (Open Jdk 11 with Dcevm-Full and HotswapAgent)
+echo Set the environment for Azul Zulu JDK 17
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -18,15 +18,37 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.1+7/java11-openjdk-dcevm-windows.zip jdk11-travaopen languages\java JAVA_HOME
+call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu17.36.19-ca-jdk17.0.4.1-win_i686.zip jdk17-azul-zulu languages\java JAVA_HOME
 
-rem Test it
+rem test it
 call java -version
+
+echo(
+echo(
+
+rem -----------------------------------------------------------------------------------------------------
+rem install ant
+call ..\ant\set-ant-1.10
+
+rem test it
+call ant -version
+
+echo(
+echo(
+
+rem -----------------------------------------------------------------------------------------------------
+rem install maven
+call ..\maven\set-maven-3.6
+
+echo(
+echo( 
+
+rem -----------------------------------------------------------------------------------------------------
+rem install gradle
+rem call ..\gradle\set-gradle-6.8
 
 rem go back
 cd %back_java%
-
-echo(
 
 echo ==============================================================================================================================
 :exit

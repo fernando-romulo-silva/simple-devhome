@@ -46,7 +46,10 @@ if %JAVA_VERSION% LSS 8 (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install ant
-call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip apache-ant-1.10.9 tools\apache-ant ANT_HOME
+call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.10.12-bin.zip apache-ant-1.10.12 tools\apache-ant ANT_HOME
+
+set "ANT_ARGS=-logger org.apache.tools.ant.listener.AnsiColorLogger"
+set "ANT_OPTS=-Xms256M -Xmx512M"
 
 rem Test it
 call ant -version

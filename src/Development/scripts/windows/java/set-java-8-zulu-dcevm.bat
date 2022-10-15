@@ -18,7 +18,7 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-win_x64.zip jdk8-zulu-dcevm languages\java JAVA_HOME
+call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-win_x64.zip jdk8-azul-zulu-dcevm languages\java JAVA_HOME
 
 rem test it
 call java -version
