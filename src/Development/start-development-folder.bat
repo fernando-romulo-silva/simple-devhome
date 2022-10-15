@@ -1,6 +1,7 @@
 @echo off
 echo =========================================================================
 echo Starting the development home
+echo
 
 rem check the DEVELOPMENT_HOME variable
 call scripts\windows\internal\check-develpment-folder var1
@@ -64,5 +65,8 @@ SETX PATH "%PATH%;%DEVELOPMENT_HOME%\scripts\"
 rem go back 
 cd %back%
 
+echo 
+echo PAY ATTENTION: Please don't forget to put the %%DEVELOPMENT%%\scripts on your PATH var environment!!!"
+echo
 echo =========================================================================
 :exit

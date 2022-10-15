@@ -1,9 +1,7 @@
 #!/bin/bash
 echo "========================================================================="
 echo "Starting the development home"
-
-echo $DEVELOPMENT_HOME
-
+echo ""
 # check the DEVELOPMENT_HOME variable
 result=$(scripts/linux/internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
@@ -45,7 +43,7 @@ for d in *; do
            echo "source $DEVELOPMENT_HOME/scripts/$d/$f" > $DEVELOPMENT_HOME/scripts/$f           
            chmod +x $DEVELOPMENT_HOME/scripts/$d/$f
            chmod +x $DEVELOPMENT_HOME/scripts/$f
-           ln -f -s $DEVELOPMENT_HOME/scripts/$f $HOME/.local/bin/$f
+           # ln -f -s $DEVELOPMENT_HOME/scripts/$f $HOME/.local/bin/$f
        done
                
        cd ..
@@ -54,7 +52,9 @@ done
 
 # go back
 cd $back
-
+echo ""
+echo "PAY ATTENTION: Please don't forget to put the \$DEVELOPMENT/scripts on your PATH var environment!!!"
+echo ""
 echo "========================================================================="
 # https://stackoverflow.com/questions/2999448/executing-shell-script-without-calling-sh-implicitly
 # find $DEVELOPMENT_HOME -type f -iname "*.sh" -exec chmod +x {} \;

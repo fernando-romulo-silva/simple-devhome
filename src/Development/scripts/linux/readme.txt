@@ -11,8 +11,6 @@ or
 
 $ gedit ~/.bashrc
 
-or
-
 
 Envionment System File
 
@@ -30,13 +28,16 @@ Ex:
 export DEVELOPMENT_HOME="/home/fernando/Development"
 
 export DOCKER_VOLUMES_HOME="$DEVELOPMENT_HOME/files/dockerVolumes"
-export JAVA_HOME="$DEVELOPMENT_HOME/languages/java/jdk11-zulu"
-export ANT_HOME="$DEVELOPMENT_HOME/tools/apache-ant/apache-ant-1.10.5"
+
+export JAVA_HOME="$DEVELOPMENT_HOME/languages/java/jdk17-oracle-hotspot"
+
+export ANT_HOME="$DEVELOPMENT_HOME/tools/apache-ant/apache-ant-1.10.9"
 export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
 export ANT_OPTS="-Xms256M -Xmx512M"
 
-export M2_HOME="$DEVELOPMENT_HOME/tools/apache-maven/apache-maven-3.6.0"
-export GRADLE_HOME="$DEVELOPMENT_HOME/tools/gradle/gradle-5.1.1"
+export M2_HOME="$DEVELOPMENT_HOME/tools/apache-maven/apache-maven-3.8.2"
+
+export GRADLE_HOME="$DEVELOPMENT_HOME/tools/gradle/gradle-6.9.1"
 
 export PATH="$JAVA_HOME/bin:$ANT_HOME/bin:$M2_HOME/bin:$GRADLE_HOME/bin:$DEVELOPMENT_HOME/scripts:$PATH"
 

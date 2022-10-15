@@ -25,7 +25,6 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # check Java 6 or Java 7
-
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
 if [[ $JAVA_MAJOR_VERSION != 6 && $JAVA_MAJOR_VERSION != 7 ]]; then
   echo "Java 6 or Java 7 is required!"
