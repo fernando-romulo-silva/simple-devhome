@@ -38,20 +38,7 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
   )
 		
   rem if it's a compressed file?
-  if not %extension% == .tar.gz (
-	
-     rem get the folder's name inside
-     for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
-         set current_name=%%a
-         goto print 
-     )
-     :print
-     echo current_name %current_name%	
-    
-     rem uncompress it! 
-	 tar -zxvf %dev_folder_downloads%\%final_name%.tar.gz --directory %dev_folder_downloads%
-     
-  ) else if %extension% == .zip (
+  if %extension% == .zip (
   
      rem get the folder's name inside
      for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
@@ -64,7 +51,20 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
      rem uncompress it! 
      tar -xf %dev_folder_downloads%\%final_name%.zip --directory %dev_folder_downloads%
      
-  ) else if not %extension% == .zip (
+  ) else if %extension% == .tar.gz (
+	
+     rem get the folder's name inside
+     for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
+         set current_name=%%a
+         goto print 
+     )
+     :print
+     echo current_name %current_name%	
+    
+     rem uncompress it! 
+	 tar -zxvf %dev_folder_downloads%\%final_name%.tar.gz --directory %dev_folder_downloads%
+     
+  ) else (
 	 
 	 rem create program folder
      mkdir %dev_folder_downloads%\%final_name%
