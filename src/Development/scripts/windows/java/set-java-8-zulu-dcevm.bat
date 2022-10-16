@@ -30,7 +30,7 @@ if not exist %JAVA_HOME%\jre\bin\server\jvm.dll.backup (
 )
 
 rem extract the DCEVM's jvm.dll to jdk
-call unzip -q -p %DEVELOPMENT_HOME%\tools\DCEVM\DCEVM-light-8\DCEVM-light-8.jar windows_amd64_compiler2\product\jvm.dll > %JAVA_HOME%\jre\bin\server\jvm.dll
+call tar -xf %DEVELOPMENT_HOME%\tools\DCEVM\DCEVM-light-8\DCEVM-light-8.jar -C %JAVA_HOME%\jre\bin\server --strip-components 2 windows_amd64_compiler2\product\jvm.dll
 
 rem --------------------
 rem install HotswapAgent

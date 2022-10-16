@@ -30,15 +30,7 @@ if not exist %JAVA_HOME%\jre\bin\server\jvm.dll.backup (
 )
 
 rem extract the DCEVM's jvm.dll to jdk
-rem call unzip -q -p %DEVELOPMENT_HOME%\tools\DCEVM\DCEVM-full-7\DCEVM-full-7.jar windows_amd64_compiler2\product\jvm.dll > %JAVA_HOME%\jre\bin\server\jvm.dll
-call tar -zxvf %DEVELOPMENT_HOME%\tools\DCEVM\DCEVM-full-7\DCEVM-full-7.jar windows_amd64_compiler2\product\jvm.dll --directory %JAVA_HOME%\jre\bin\server\jvm.dll
-
-tar -zxvf %DEVELOPMENT_HOME%\tools\DCEVM\DCEVM-full-7\DCEVM-full-7.jar windows_amd64_compiler2\product\jvm.dll > %JAVA_HOME%\jre\bin\server\jvm.dll
-
-unzip -q -p DCEVM-full-7.jar windows_amd64_compiler2\product\jvm.dll > C:\Users\windows\Development\languages\java\jdk7-azul-zulu-dcevm\jre\bin\server\jvm.dll
-
-tar -zxvf DCEVM-full-7.jar windows_amd64_compiler2/product/jvm.dll > C:\Users\windows\Development\languages\java\jdk7-azul-zulu-dcevm\jre\bin\server
-
+call tar -xf %DEVELOPMENT_HOME%\tools\DCEVM\DCEVM-full-7\DCEVM-full-7.jar -C %JAVA_HOME%\jre\bin\server --strip-components 2 windows_amd64_compiler2/product/jvm.dll
 
 rem --------------------
 rem install HotswapAgent
