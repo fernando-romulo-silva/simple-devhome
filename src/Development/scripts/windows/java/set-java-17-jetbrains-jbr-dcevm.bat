@@ -40,9 +40,6 @@ rem ----------------------------------------------------------------------------
 rem install ant
 call ..\ant\set-ant-1.10
 
-rem test it
-call ant -version
-
 echo(
 echo(
 

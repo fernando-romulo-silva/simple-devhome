@@ -36,15 +36,20 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 	 bitsadmin /reset
 	 bitsadmin /transfer "JobName" /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto :error
   )
-	
+		
   rem if it's a compressed file?
-  if not %extension% == .zip (
-     
-     rem create program folder
-     mkdir %dev_folder_downloads%\%final_name%
+  if not %extension% == .tar.gz (
+	
+     rem get the folder's name inside
+     for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
+         set current_name=%%a
+         goto print 
+     )
+     :print
+     echo current_name %current_name%	
     
-     rem copy it into 
-     xcopy %dev_folder_downloads%\%final_name%%extension% %dev_folder_downloads%\%final_name%
+     rem uncompress it! 
+	 tar -zxvf %dev_folder_downloads%\%final_name%.tar.gz --directory %dev_folder_downloads%
      
   ) else if %extension% == .zip (
   
@@ -58,7 +63,15 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
      
      rem uncompress it! 
      tar -xf %dev_folder_downloads%\%final_name%.zip --directory %dev_folder_downloads%
-  ) 
+     
+  ) else if not %extension% == .zip (
+	 
+	 rem create program folder
+     mkdir %dev_folder_downloads%\%final_name%
+    
+     rem copy it into 
+     xcopy %dev_folder_downloads%\%final_name%%extension% %dev_folder_downloads%\%final_name%
+  )
    
    rem -----------------------------------------------------------------------------------------------------
    rem create the dest folder
