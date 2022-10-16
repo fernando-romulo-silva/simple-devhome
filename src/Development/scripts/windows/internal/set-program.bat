@@ -36,9 +36,11 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 	 bitsadmin /reset
 	 bitsadmin /transfer "JobName" /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto :error
   )
-		
+
+  echo This is the current_name %current_name%, and extension %extension%
+	
   rem if it's a compressed file?
-  if %extension% == .zip (
+  if %extension%==".zip" (
   
      rem get the folder's name inside
      for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
@@ -46,12 +48,11 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
          goto print 
      )
      :print
-     echo current_name %current_name%
      
      rem uncompress it! 
      tar -xf %dev_folder_downloads%\%final_name%.zip --directory %dev_folder_downloads%
      
-  ) else if %extension% == .tar.gz (
+  ) else if %extension%==".tar.gz" (
 	
      rem get the folder's name inside
      for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
@@ -59,7 +60,6 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
          goto print 
      )
      :print
-     echo current_name %current_name%	
     
      rem uncompress it! 
 	 tar -zxvf %dev_folder_downloads%\%final_name%.tar.gz --directory %dev_folder_downloads%
