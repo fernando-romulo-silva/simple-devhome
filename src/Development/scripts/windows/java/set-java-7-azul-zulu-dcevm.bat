@@ -18,7 +18,7 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program http://installbuilder.bitrock.com/java/jdk1.7.0_79-windows-x64.zip jdk7-azul-zulu-dcevm languages\java JAVA_HOME
+call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu7.9.0.2-ca-jdk7.0.79-win_x64.zip jdk7-azul-zulu-dcevm languages\java JAVA_HOME
 
 rem -------------------
 rem install DCEVM

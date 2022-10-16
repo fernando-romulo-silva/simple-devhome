@@ -21,7 +21,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu7.25.0.5-jdk7.0.201-win_x64.zip jdk7-azul-zulu languages\java JAVA_HOME
+call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu7.56.0.11-ca-jdk7.0.352-win_x64.zip jdk7-azul-zulu languages\java JAVA_HOME
 
 rem Test it
 call java -version

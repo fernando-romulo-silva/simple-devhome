@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-source ../internal/set-program.sh http://cdn-files.evildayz.com/mirror/java/jdk_7u79/jdk-7u79-linux-x64.tar.gz jdk7-azul-zulu-dcevm languages/java JAVA_HOME
+source ../internal/set-program.sh https://cdn.azul.com/zulu/bin/zulu1.7.0_79-7.9.0.2-x86lx64.zip jdk7-azul-zulu-dcevm languages/java JAVA_HOME
 
 # --------------------
 # install DCEVM
