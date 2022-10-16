@@ -30,54 +30,60 @@ echo %DEVELOPMENT_HOME%\%dest%\%final_name%%extension%
 
 if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 
-  rem is the file already download?
-  if not exist %dev_folder_downloads%\%final_name%%extension% (
-     rem download it!
-	 bitsadmin /reset
-	 bitsadmin /transfer "JobName" /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto :error
-  )
-
-  echo This is the current_name %current_name%, and extension %extension%
-	
-  rem if it's a compressed file?
-  if %extension%==".zip" (
-  
-     rem get the folder's name inside
-     for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
-         set current_name=%%a
-         goto print 
-     )
-     :print
-     
-     rem uncompress it! 
-     tar -xf %dev_folder_downloads%\%final_name%.zip --directory %dev_folder_downloads%
-     
-  ) else if %extension%==".tar.gz" (
-	
-     rem get the folder's name inside
-     for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
-         set current_name=%%a
-         goto print 
-     )
-     :print
-    
-     rem uncompress it! 
-	 tar -zxvf %dev_folder_downloads%\%final_name%.tar.gz --directory %dev_folder_downloads%
-     
-  ) else (
-	 
-	 rem create program folder
-     mkdir %dev_folder_downloads%\%final_name%
-    
-     rem copy it into 
-     xcopy %dev_folder_downloads%\%final_name%%extension% %dev_folder_downloads%\%final_name%
-  )
+   rem is the file already download?
+   if not exist %dev_folder_downloads%\%final_name%%extension% (
+      rem download it!
+	  bitsadmin /reset
+	  bitsadmin /transfer "JobName" /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto :error
+   )
    
+   echo extension %extension%
+	
+   rem if it's a compressed file?
+   if %extension% == .zip (
+  
+      rem get the folder's name inside
+      for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
+         set current_name=%%a
+         goto print1 
+      )
+      :print1
+      echo current_name ZIP %current_name%
+     
+      rem uncompress it! 
+      tar -xf %dev_folder_downloads%\%final_name%.zip --directory %dev_folder_downloads%  
+	   
+   ) else (
+
+	   if %extension% == .tar.gz (
+		
+		 rem get the folder's name inside
+		 for /f "delims=/" %%a in ('tar -tf "%%dev_folder_downloads%%\%%final_name%%%%extension%%"') do (
+			 set current_name=%%a
+			 goto print2 
+		 )
+		 :print2
+		 echo current_name TAR_GZ %current_name%	
+		
+		 rem uncompress it! 
+		 tar -zxvf %dev_folder_downloads%\%final_name%.tar.gz --directory %dev_folder_downloads%
+		 	 
+	   ) else if not %extension% == .zip (
+		 
+		 echo current_name ALL %current_name%
+		 rem create program folder
+		 mkdir %dev_folder_downloads%\%final_name%
+		
+		 rem copy it into 
+		 xcopy %dev_folder_downloads%\%final_name%%extension% %dev_folder_downloads%\%final_name%
+	   )   
+   )
+  
    rem -----------------------------------------------------------------------------------------------------
    rem create the dest folder
    if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
-       mkdir %DEVELOPMENT_HOME%\%dest%\%final_name%
-   )
+	   mkdir %DEVELOPMENT_HOME%\%dest%\%final_name%
+   )   
    
    rem -----------------------------------------------------------------------------------------------------
    rem is the folder extracted equals to final name?   
