@@ -17,10 +17,17 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
+# check the JAVA_HOME variable
+if [[ -z "${JAVA_HOME}" ]] ; then
+  echo "error: JAVA_HOME is not configured, please configure it."
+  return 0
+fi
+
+# -----------------------------------------------------------------------------------------------------
 # check Java 8+
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
 if [[ $JAVA_MAJOR_VERSION -lt 8 ]]; then
-  echo "Java 8 or higher is required!"
+  echo "error: Java 8 or higher is required!"
   return 0
 fi
 

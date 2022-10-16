@@ -19,7 +19,7 @@ if /I "%var1:error=%" neq "%var1%" (
 rem -----------------------------------------------------------------------------------------------------
 rem check JAVA_HOME
 if %JAVA_HOME%=="" (
-   echo Java home, JAVA_HOME, is not configured, please configure it.
+   echo error: JAVA_HOME is not configured, please configure it.
    cd %back%
    exit /B 
 )
@@ -41,7 +41,7 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
 )
 
 if %JAVA_VERSION% LSS 8 (
-	echo Java 8 or higher is required!
+	echo error: Java 8 or higher is required!
 	cd %back%
     exit /B	
 ) 

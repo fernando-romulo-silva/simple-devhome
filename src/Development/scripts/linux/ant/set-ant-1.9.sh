@@ -19,7 +19,7 @@ fi
 # -----------------------------------------------------------------------------------------------------
 # check the JAVA_HOME variable
 if [[ -z "${JAVA_HOME}" ]] ; then
-  echo "Java home, JAVA_HOME, is not configured, please configure it."
+  echo "error: JAVA_HOME is not configured, please configure it."
   return 0
 fi
 
@@ -27,7 +27,7 @@ fi
 # check Java 6 or Java 7
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
 if [[ $JAVA_MAJOR_VERSION != 6 && $JAVA_MAJOR_VERSION != 7 ]]; then
-  echo "Java 6 or Java 7 is required!"
+  echo "error: Java 6 or Java 7 is required!"
   return 0
 fi
 
