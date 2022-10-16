@@ -20,6 +20,9 @@ rem ----------------------------------------------------------------------------
 rem install java
 call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu8.34.0.1-ca-jdk8.0.201-win_x64.zip jdk8-azul-zulu languages\java JAVA_HOME
 
+rem Test it
+call java -version
+
 echo(
 echo(
 

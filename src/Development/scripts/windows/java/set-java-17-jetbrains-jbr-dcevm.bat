@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_java=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for Azul Zulu JDK 8 with DCEVM-Light and HotswapAgent
+echo Set the environment for JetBrains JBR JDK 17 (Open Jdk 17 with Dcevm-Full and HotswapAgent)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -18,23 +18,17 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-win_x64.zip jdk8-azul-zulu-dcevm languages\java JAVA_HOME
-
-rem ---------------------
-rem install DCEVM 
-call ..\internal\set-program https://github.com/dcevm/dcevm/releases/download/light-jdk8u181/DCEVM-8u181-installer.jar DCEVM-light-8 tools\DCEVM
-
-rem backup the jvm.dll file
-if not exist %JAVA_HOME%\jre\bin\server\jvm.dll.backup (
-    rename %JAVA_HOME%\jre\bin\server\jvm.dll jvm.dll.backup
-)
-
-rem extract the DCEVM's jvm.dll to jdk
-call unzip -q -p %DEVELOPMENT_HOME%\tools\DCEVM\DCEVM-light-8\DCEVM-light-8.jar windows_amd64_compiler2\product\jvm.dll > %JAVA_HOME%\jre\bin\server\jvm.dll
+call ..\internal\set-program https://cache-redirector.jetbrains.com/intellij-jbr/jbr_dcevm-17_0_1-windows-x64-b164.8.tar.gz jdk17-jetbrains-jbr-dcevm languages\java JAVA_HOME
 
 rem --------------------
 rem install HotswapAgent
-call ..\internal\set-program https://github.com/HotswapProjects/HotswapAgent/releases/download/RELEASE-1.3.0/hotswap-agent-1.3.0.jar hotswap-agent-1.3.0 tools\HotswapAgent
+call ../internal/set-program.sh https://github.com/HotswapProjects/HotswapAgent/releases/download/RELEASE-1.4.1/hotswap-agent-1.4.1.jar hotswap-agent-1.4.1 tools/HotswapAgent
+
+if not exist $JAVA_HOME/lib/hotswap (
+	mkdir $JAVA_HOME/lib/hotswap
+)	
+
+copy $DEVELOPMENT_HOME/tools/HotswapAgent/hotswap-agent-1.4.1/hotswap-agent-1.4.1.jar $JAVA_HOME/lib/hotswap/hotswap-agent.jar
 
 rem test it
 call java -version
@@ -45,6 +39,9 @@ echo(
 rem -----------------------------------------------------------------------------------------------------
 rem install ant
 call ..\ant\set-ant-1.10
+
+rem test it
+call ant -version
 
 echo(
 echo(
@@ -58,14 +55,13 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\gradle\set-gradle-5.1
+call ..\gradle\set-gradle-7.5
 
 echo(
-echo To use hotswap agent, launch your application with options: -javaagent:%DEVELOPMENT_HOME%\tools\HotswapAgent\hotswap-agent-1.3.0\hotswap-agent-1.3.0.jar
-echo Don't forget to put the hotswap-agent.properties on your classpath (src/main/resource)
+echo Don't forget to run your application with additional options '-XX:+AllowEnhancedClassRedefinition -XX:HotswapAgent=fatjar'
 
 rem go back
-cd %back%
+cd %back_java%
 
 echo ==============================================================================================================================
 :exit

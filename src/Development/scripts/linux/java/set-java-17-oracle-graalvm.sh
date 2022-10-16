@@ -4,7 +4,7 @@ back_java=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
-echo "Set the environment for Oracle Hotspot JDK 17"
+echo "Set the environment for Oracle GraalVM JDK 17"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install java
-source ../internal/set-program.sh https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz jdk17-oracle-hotspot languages/java JAVA_HOME
+source ../internal/set-program.sh https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.2.0/graalvm-ce-java17-linux-amd64-22.2.0.tar.gz jdk17-oracle-graalvm languages/java JAVA_HOME
 
 # Test it
 java -version

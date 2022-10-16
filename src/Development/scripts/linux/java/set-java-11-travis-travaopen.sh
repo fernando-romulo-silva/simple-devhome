@@ -23,8 +23,29 @@ source ../internal/set-program.sh https://github.com/TravaOpenJDK/trava-jdk-11-d
 # Test it
 java -version
 
-echo "Don't forget to put the hotswap-agent.properties on your classpath (src/main/resources)"
 echo " "
+echo " "
+
+# -----------------------------------------------------------------------------------------------------
+# install ant
+source ../set-ant-1.10.sh
+
+echo " "
+echo " "
+
+# -----------------------------------------------------------------------------------------------------
+# install maven
+source ../set-maven-3.8.sh
+
+echo " "
+echo " "
+
+# -----------------------------------------------------------------------------------------------------
+# install gradle
+source ../set-gradle-6.9.sh
+
+echo " "
+echo "Don't forget to put the hotswap-agent.properties on your classpath (src/main/resources)"
 
 # go back
 cd $back_java
