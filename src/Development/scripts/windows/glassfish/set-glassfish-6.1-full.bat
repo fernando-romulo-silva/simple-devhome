@@ -4,7 +4,7 @@ set back_glass=%cd%
 cd %DEVELOPMENT_HOME%\scripts\glassfish
 
 echo ==============================================================================================================================
-echo Set the Environment for Glassfish 5.0 Full Profile (JEE 8)
+echo Set the Environment for Glassfish 6.1 Full Profile (JEE 9.1)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -21,8 +21,8 @@ rem install java 8
 call ..\java\set-java-8-zulu
 
 rem -----------------------------------------------------------------------------------------------------
-rem install glassfish 5.0 full
-call ..\internal\set-program https://repo1.maven.org/maven2/org/glassfish/main/distributions/glassfish/5.0.1/glassfish-5.0.1.zip glassfish-5.0-full servers\glassfish GLASSFISH_HOME
+rem install glassfish 5.1 full
+call ..\internal\set-program https://download.eclipse.org/ee4j/glassfish/glassfish-6.1.0.zip glassfish-6.1-full servers/glassfish GLASSFISH_HOME     
 
 rem -----------------------------------------------------------------------------------------------------
 rem doc glassfish
