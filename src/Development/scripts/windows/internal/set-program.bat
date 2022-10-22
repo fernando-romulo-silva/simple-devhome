@@ -34,11 +34,9 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
    if not exist %dev_folder_downloads%\%final_name%%extension% (
       rem download it!
 	  bitsadmin /reset
-	  bitsadmin /transfer "JobName" /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto :error
+	  bitsadmin /transfer "JobName" /priority normal %url% %dev_folder_downloads%\%final_name%%extension% || goto error
    )
    
-   echo extension %extension%
-	
    rem if it's a compressed file?
    if %extension% == .zip (
   
@@ -48,8 +46,6 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
          goto print1 
       )
       :print1
-      echo current_name ZIP %current_name%
-     
       rem uncompress it! 
       tar -xf %dev_folder_downloads%\%final_name%.zip --directory %dev_folder_downloads%  
 	   
@@ -63,15 +59,11 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 			 goto print2 
 		 )
 		 :print2
-		 echo current_name TAR_GZ %current_name%	
-		
 		 rem uncompress it! 
-		 tar -zxvf %dev_folder_downloads%\%final_name%.tar.gz --directory %dev_folder_downloads%
+		 tar -xf %dev_folder_downloads%\%final_name%.tar.gz --directory %dev_folder_downloads%
 		 	 
 	   ) else if not %extension% == .zip (
-		 
-		 echo current_name ALL %current_name%
-		 
+		 	 
 		 rem create program folder
 		 mkdir %dev_folder_downloads%\%final_name%
 		
@@ -85,25 +77,27 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
    if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 	   mkdir %DEVELOPMENT_HOME%\%dest%\%final_name%
    )   
-   
-   echo BLA %final_name% and %current_name%
-   
+     
    rem -----------------------------------------------------------------------------------------------------
    rem is the folder extracted equals to final name?   
    if not "%final_name%" == "%current_name%" (
-      
+           
       rem grant permission to access folder
-      icacls "%dev_folder_downloads%\%current_name%" /grant Everyone:M
+      icacls "%dev_folder_downloads%\%current_name%" /q /c /t /grant Users:M
       
       rem rename compacted folder to final folder  - access denied process in the folder
       rename %dev_folder_downloads%\%current_name% %final_name%
-      
+                  
    ) else (
-      
+	     
       rem grant permission to access folder
-      icacls "%dev_folder_downloads%\%final_name%" /grant Everyone:M
+      icacls "%dev_folder_downloads%\%final_name%" /q /c /t /grant Users:M
    )
    
+   if not exist %dev_folder_downloads%\%final_name% (
+	   goto error
+   )    
+     
    rem copy the program folder to dest
    xcopy /y /s %dev_folder_downloads%\%final_name%\*  %DEVELOPMENT_HOME%\%dest%\%final_name%\
    
