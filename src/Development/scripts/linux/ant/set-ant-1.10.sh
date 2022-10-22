@@ -10,7 +10,7 @@ echo "Set the environment for Ant 1.10 (JDK 8+)"
 # check the DEVELOPMENT_HOME variable
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
-  echo $result
+  source ../internal/exit-script.sh $back_ant $result
   return 0
 else
   echo $result
@@ -19,7 +19,7 @@ fi
 # -----------------------------------------------------------------------------------------------------
 # check the JAVA_HOME variable
 if [[ -z "${JAVA_HOME}" ]] ; then
-  echo "error: JAVA_HOME is not configured, please configure it."
+  source ../internal/exit-script.sh $back_ant "error: JAVA_HOME is not configured, please configure it."
   return 0
 fi
 
@@ -27,7 +27,7 @@ fi
 # check Java 8+
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
 if [[ $JAVA_MAJOR_VERSION -lt 8 ]]; then
-  echo "error: Java 8 or higher is required!"
+  source ../internal/exit-script.sh $back_ant "error: Java 8 or higher is required!"
   return 0
 fi
 

@@ -10,7 +10,7 @@ echo "Set the environment for Oracle Hotspot JDK 17"
 # check the DEVELOPMENT_HOME variable
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
-  echo $result
+  source ../internal/exit-script.sh $back_java $result
   return 0
 else
   echo $result

@@ -1,6 +1,6 @@
 @echo off
 rem go to script dir
-set back=%cd%
+set back_ant=%cd%
 cd %DEVELOPMENT_HOME%\scripts\ant
 
 echo ==============================================================================================================================
@@ -11,7 +11,7 @@ rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    exit /B 
+    goto exit 
 ) else (
  	echo %var1%
 )
@@ -20,8 +20,7 @@ rem ----------------------------------------------------------------------------
 rem check JAVA_HOME
 if %JAVA_HOME%=="" (
     echo error: JAVA_HOME is not configured, please configure it.
-    cd %back%
-    exit /B
+    goto exit
 )
 
 rem -----------------------------------------------------------------------------------------------------
@@ -42,8 +41,7 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
 
 if %JAVA_VERSION% GTR 7 (
 	echo error: Java 7 or Java 6 is required!
-	cd %back%
-    exit /B	
+ 	goto exit
 ) 
 
 rem -----------------------------------------------------------------------------------------------------
@@ -53,8 +51,8 @@ call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-a
 rem Test it
 call ant -version
 
-rem go back
-cd %back%
-
-echo ==============================================================================================================================
 :exit
+echo ==============================================================================================================================
+
+rem go back_ant
+cd %back_ant%

@@ -11,6 +11,7 @@ echo "Set the Environment for Glassfish 5.1 Full Profile (JEE 8)"
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
+  source ../internal/exit-script.sh $back_glass
   return 0
 else
   echo $result
@@ -19,7 +20,7 @@ fi
 # -----------------------------------------------------------------------------------------------------
 # check the JAVA_HOME variable
 if [[ -z "${JAVA_HOME}" ]] ; then
-  echo "error: JAVA_HOME is not configured, please configure it."
+  source ../internal/exit-script.sh $back_glass "error: JAVA_HOME is not configured, please configure it."
   return 0
 fi
 
@@ -27,7 +28,7 @@ fi
 # check Java 8
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
 if [[ $JAVA_MAJOR_VERSION != 8 ]]; then
-  echo "error: Java 8 is required!"
+  source ../internal/exit-script.sh $back_glass "error: Java 8 is required!"
   return 0
 fi
 

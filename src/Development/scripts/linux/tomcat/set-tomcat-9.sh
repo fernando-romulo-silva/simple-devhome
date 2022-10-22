@@ -10,7 +10,7 @@ echo "Set the Environment for Tomcat 9.0 (JEE 8 Web = Servlet 4.0, JSP 2.3, EL 3
 # check the DEVELOPMENT_HOME variable
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
-  echo $result
+  source ../internal/exit-script.sh $back_tom $result
   return 0
 else
   echo $result
@@ -19,7 +19,7 @@ fi
 # -----------------------------------------------------------------------------------------------------
 # check the JAVA_HOME variable
 if [[ -z "${JAVA_HOME}" ]] ; then
-  echo "error: JAVA_HOME is not configured, please configure it."
+  source ../internal/exit-script.sh $back_tom "error: JAVA_HOME is not configured, please configure it."
   return 0
 fi
 
@@ -27,7 +27,7 @@ fi
 # check Java
 JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
 if [[ $JAVA_MAJOR_VERSION != 8 ]]; then
-  echo "error: Java 8 is required!"
+  source ../internal/exit-script.sh $back_tom "error: Java 8 is required!"
   return 0
 fi
 

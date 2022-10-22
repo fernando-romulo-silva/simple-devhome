@@ -1,6 +1,6 @@
 #!/bin/bash
 # go to script dir
-back=$(pwd)
+back_java=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/java
 
 echo "=============================================================================================================================="
@@ -10,7 +10,7 @@ echo "Set the environment for Azul Zulu JDK 7 with DCEVM-Full and HotswapAgent"
 # check the DEVELOPMENT_HOME variable
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
-  echo $result
+  source ../internal/exit-script.sh $back_java $result
   return 0
 else
   echo $result
@@ -62,7 +62,7 @@ echo " "
 echo "To use hotswap agent, launch your application with options: -javaagent:$DEVELOPMENT_HOME/tools/HotswapAgent/hotswap-agent-1.3.0/hotswap-agent-1.3.0.jar"
 echo "Don't forget to put the hotswap-agent.properties on your classpath (src/main/resource)"
 
-# go back
-cd $back
+# go back_java
+cd $back_java
 
 echo "=============================================================================================================================="
