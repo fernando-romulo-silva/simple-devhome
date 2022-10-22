@@ -71,6 +71,7 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 	   ) else if not %extension% == .zip (
 		 
 		 echo current_name ALL %current_name%
+		 
 		 rem create program folder
 		 mkdir %dev_folder_downloads%\%final_name%
 		
@@ -84,6 +85,8 @@ if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
    if not exist %DEVELOPMENT_HOME%\%dest%\%final_name% (
 	   mkdir %DEVELOPMENT_HOME%\%dest%\%final_name%
    )   
+   
+   echo BLA %final_name% and %current_name%
    
    rem -----------------------------------------------------------------------------------------------------
    rem is the folder extracted equals to final name?   

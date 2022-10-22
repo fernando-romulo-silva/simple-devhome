@@ -4,7 +4,7 @@ set url=%2
 set final_name=%3
 
 If NOT "%url%"=="%url:tar.gz=%" (
-  set "%~1=tar.gz"
+  set "%~1=.tar.gz"
   goto exit
 )
 
