@@ -3,6 +3,11 @@ rem get extension's file
 set url=%2
 set final_name=%3
 
+If NOT "%url%"=="%url:tar.gz=%" (
+  set "%~1=tar.gz"
+  goto exit
+)
+
 rem -----------------------------------------------------------------------------------------------------
 rem get the serve file name
 for %%x in (%url:/= %) do set server_file_temp=%%x
@@ -20,3 +25,5 @@ for %%i in ("%dev_folder_downloads%\%server_file%") do (
 )
 
 set "%~1=%result%"
+
+:exit
