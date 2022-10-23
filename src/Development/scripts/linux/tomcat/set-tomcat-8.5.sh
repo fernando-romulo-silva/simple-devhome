@@ -4,7 +4,7 @@ back_tom=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/tomcat
 
 echo "=============================================================================================================================="
-echo "Set the Environment for Tomcat 8.5 (JEE 7 Web = Servlet 3.1, JSP 2.3, EL 3.0, WebSocket 1.1, Authentication (JASIC) 1.1)"
+echo "Set the Environment for Tomcat 8.5 (Java 7, JEE 7 Web = Servlet 3.1, JSP 2.3, EL 3.0, WebSocket 1.1, Authentication (JASIC) 1.1)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable

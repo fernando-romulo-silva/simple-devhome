@@ -1,26 +1,26 @@
 @echo off
 rem go to script dir
-set back_gradle=%cd%
-cd %DEVELOPMENT_HOME%\scripts\gradle
+set back_wild=%cd%
+cd %DEVELOPMENT_HOME%\scripts\wildfly
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 5.1 (JDK 8)
+echo Set the Environment for Wildfly 26.1 Full Profile (Java 11+, JEE 9)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    goto exit 
+    goto exit
 ) else (
  	echo %var1%
-)
+) 
 
 rem -----------------------------------------------------------------------------------------------------
 rem check JAVA_HOME
 if %JAVA_HOME% == "" (
    echo Java home, JAVA_HOME, is not configured, please configure it.
-   goto exit
+   goto exit 
 )
 
 rem -----------------------------------------------------------------------------------------------------
@@ -39,20 +39,21 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
   )
 )
 
-if not %JAVA_VERSION%==8 (
-	echo error: Java 8 is required!
-    goto exit
+if %JAVA_VERSION% LSS 11 (
+	echo error: Java 11 or higher is required!
+	goto exit
 )
 
 rem -----------------------------------------------------------------------------------------------------
-rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools\gradle GRADLE_HOME
+rem install wildfly 26 Full
+call ..\internal\set-program https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-26.1.2.Final.zip wildfly-26.1-full servers\wildfly WILDFLY_HOME
 
-rem Test it
-call gradle -v
+rem -----------------------------------------------------------------------------------------------------
+rem doc Wildfly
+call doc-wildfly
 
 :exit
 echo ==============================================================================================================================
 
 rem go back 
-cd %back_gradle%
+cd %back_wild%

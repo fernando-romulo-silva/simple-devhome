@@ -4,7 +4,7 @@ set back_jetty=%cd%
 cd %DEVELOPMENT_HOME%\scripts\jetty
 
 echo ==============================================================================================================================
-echo Set the Environment for Jetty 9.4
+echo Set the environment for Jetty 9.4 (Java 8+, JEE 7 Web = Servlet 3.1, JSP 2.3, EL 3.0, WebSocket 1.1, Authentication (JASIC) 1.1)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -17,8 +17,32 @@ if /I "%var1:error=%" neq "%var1%" (
 ) 
 
 rem -----------------------------------------------------------------------------------------------------
-rem install java 8
-call ..\java\set-java-8-zulu
+rem check JAVA_HOME
+if %JAVA_HOME% == "" (
+   echo error: JAVA_HOME is not configured, please configure it.
+   goto exit 
+)
+
+rem -----------------------------------------------------------------------------------------------------
+rem check Java version
+set JAVA_VERSION=0
+for /f "tokens=3" %%g in ('java -Xms32M -Xmx32M -version 2^>^&1 ^| findstr /i "version"') do (
+  set JAVA_VERSION=%%g
+)
+
+set JAVA_VERSION=%JAVA_VERSION:"=%
+for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
+  if /I "%%v" EQU "1" (
+    set JAVA_VERSION=%%w
+  ) else (
+    set JAVA_VERSION=%%v
+  )
+)
+
+if %JAVA_VERSION% LSS 8 (
+	echo error: Java 8 or higher is required!
+	goto exit
+)
 
 rem -----------------------------------------------------------------------------------------------------
 rem install Jetty 9.4
@@ -28,8 +52,8 @@ rem ----------------------------------------------------------------------------
 rem doc Jetty
 call doc-jetty
 
+:exit
+echo ==============================================================================================================================
+
 rem go back 
 cd %back_jetty%
-
-echo ==============================================================================================================================
-:exit

@@ -4,7 +4,7 @@ back_jetty=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/jetty
 
 echo "=============================================================================================================================="
-echo "Set the environment for Jetty 11.0 (JEE 9 Web = Servlet 5.0, JSP 3.0, EL 4.0, WebSocket 2.0, Authentication (JASIC) 2.0)"
+echo "Set the environment for Jetty 11.0 (Java 11+, JEE 9 Web = Servlet 5.0, JSP 3.0, EL 4.0, WebSocket 2.0, Authentication (JASIC) 2.0)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
