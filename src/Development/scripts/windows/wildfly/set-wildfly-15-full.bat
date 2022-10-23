@@ -46,7 +46,7 @@ if %JAVA_VERSION% LSS 11 (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install wildfly 15 Full
-call ..\internal\set-program https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0 servers\wildfly WILDFLY_HOME
+call ..\internal\set-program https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0-full servers\wildfly WILDFLY_HOME
 
 rem -----------------------------------------------------------------------------------------------------
 rem doc Wildfly
