@@ -24,7 +24,7 @@ Please follow these steps:
 
 ## Step 1
 
-You have to create a folder to put the content, the "Development" folder (preferencially something like '/home/yourUser/Development' for Linux and 'C:\Users\yourUser\Development'). <br />
+You have to create a folder to put the content, the "Development" folder (preferencially something like '/home/yourUser/Development' for Linux and 'C:\Users\yourUser\Development' for windows). <br />
 The word 'yourUser' is a user name example. <br />
 
 ## Step 2
@@ -126,13 +126,13 @@ Finally we need enter the "src" folder and execute the installation script.
 
 ### Linux
 
-For that:
+Execute on terminal:
 
 ```bash
 cd simple-devhome/Development/src
 ```
 
-And execute: 
+And: 
 
 ```bash
 sh start-development-folder.sh
@@ -140,13 +140,13 @@ sh start-development-folder.sh
 
 ### Windows
 
-For that execute:
+Execute on terminal:
 
 ```bash
 cd simple-devhome\Development\src
 ```
 
-And execute: 
+And: 
 
 ```bash
 start-development-folder.bat
@@ -156,50 +156,52 @@ start-development-folder.bat
 # How to Use
 
 This section you learn how to some stuff on your machine.
+All script begins with 'set'.
 
-## Java, Ant, Maven and Gradle
+# Java, Ant, Maven and Gradle
 
-### Java 17
+To install Java 17, Ant 1.10, Maven 3.8 and Gradle 7.5 execute:
 
-To install Java 17 and Ant, Maven and Gradle execute:
-
-#### Linux
+## Linux
 
 ```bash
 source set-java-17-oracle-hotspot.sh
 ```
 
-#### Windows
+## Windows
 
 ```bash
 set-java-17-oracle-hotspot.bat
 ```
 
-For Java 17 version you will install you can change 'oracle-hotspot' for:
+For Java 17 version you can install these versions:
 
-oracle-hotspot
-azul-zulu
-jetbrains-jbr-dcevm
-oracle-graalvm
+set-java-17-oracle-hotspot
+set-java-17-azul-zulu
+set-java-17-jetbrains-jbr-dcevm
+set-java-17-oracle-graalvm
 
-### Java 11
 
-To install Java 11 and Ant, Maven and Gradle execute:
+For Java 11 version you can install these versions:
 
-#### Linux
+set-java-11-azul-zulu
+set-java-11-travis-travaopen
+set-java-11-oracle-graalvm
 
-```bash
-source set-java-11-azul-zulu.sh
-```
 
-#### Windows
+For Java 8 version you can install these versions:
 
-```bash
-set-java-11-azul-zulu.bat
-```
+set-java-8-azul-zulu
+set-java-8-azul-zulu-dcevm
 
-For Java 11 version you will install you can change 'oracle-hotspot' for:
 
-azul-zulu
-travis-travaopen
-oracle-graalvm
+For Java 7 version you can install these versions:
+
+set-java-7-azul-zulu
+set-java-7-azul-zulu-dcevm
+
+
+For Java 6 version you can install only this version:
+
+set-java-7-azul-zulu
+
