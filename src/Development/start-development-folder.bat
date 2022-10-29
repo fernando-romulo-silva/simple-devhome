@@ -65,6 +65,6 @@ cd %back%
 
 echo( 
 echo PAY ATTENTION: Please don't forget to put the %%DEVELOPMENT%%\scripts on your PATH var environment!!!"
+:exit
 echo(
 echo =========================================================================
-:exit

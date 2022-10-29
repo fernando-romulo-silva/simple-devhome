@@ -44,7 +44,7 @@ if not %JAVA_VERSION%==11 (
     goto exit	
 )
 rem -----------------------------------------------------------------------------------------------------
-rem install glassfish 5.1 full
+rem install glassfish 6.1 full
 call ..\internal\set-program https://download.eclipse.org/ee4j/glassfish/glassfish-6.1.0.zip glassfish-6.1-full servers/glassfish GLASSFISH_HOME     
 
 rem -----------------------------------------------------------------------------------------------------

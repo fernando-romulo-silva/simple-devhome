@@ -6,6 +6,8 @@ echo ""
 result=$(scripts/linux/internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
   echo $result
+  echo ""
+  echo "========================================================================="  
   return 0
 else
   echo $result
@@ -14,11 +16,6 @@ fi
 # check if the Development folder exists
 if [ ! -d "$DEVELOPMENT_HOME" ]; then
 	mkdir -p $DEVELOPMENT_HOME
-fi
-
-# check if the local bin folder exists
-if [ ! -d $HOME/.local/bin ]; then
-	mkdir -p $HOME/.local/bin
 fi
 
 # copy the structure of folder, just the important
@@ -43,7 +40,6 @@ for d in *; do
            echo "source $DEVELOPMENT_HOME/scripts/$d/$f" > $DEVELOPMENT_HOME/scripts/$f           
            chmod +x $DEVELOPMENT_HOME/scripts/$d/$f
            chmod +x $DEVELOPMENT_HOME/scripts/$f
-           # ln -f -s $DEVELOPMENT_HOME/scripts/$f $HOME/.local/bin/$f
        done
                
        cd ..
