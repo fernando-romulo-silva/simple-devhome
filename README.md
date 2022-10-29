@@ -176,38 +176,29 @@ set-java-17-oracle-hotspot.bat
 
 ## Other Versions
 
-For Java 17 version you can install these versions:  <br />
-
-set-java-17-oracle-hotspot
-set-java-17-azul-zulu
-set-java-17-jetbrains-jbr-dcevm
-set-java-17-oracle-graalvm
-<br />
-<br />
+For Java 17 version you can install these versions:
+- set-java-17-oracle-hotspot
+- set-java-17-azul-zulu
+- set-java-17-jetbrains-jbr-dcevm
+- set-java-17-oracle-graalvm
  
-For Java 11 version you can install these versions: <br />
+For Java 11 version you can install these versions:
 
-set-java-11-azul-zulu
-set-java-11-travis-travaopen
-set-java-11-oracle-graalvm
-<br />
-<br />
+- set-java-11-azul-zulu
+- set-java-11-travis-travaopen
+- set-java-11-oracle-graalvm
 
-For Java 8 version you can install these versions: <br />
+For Java 8 version you can install these versions:
 
-set-java-8-azul-zulu
-set-java-8-azul-zulu-dcevm
-<br />
-<br />
+- set-java-8-azul-zulu
+- set-java-8-azul-zulu-dcevm
 
-For Java 7 version you can install these versions: <br />
+For Java 7 version you can install these versions:
 
-set-java-7-azul-zulu
-set-java-7-azul-zulu-dcevm
-<br />
-<br />
+- set-java-7-azul-zulu
+- set-java-7-azul-zulu-dcevm
 
-For Java 6 version you can install only this version: <br />
+For Java 6 version you can install only this version:
 
-set-java-7-azul-zulu
+- set-java-6-azul-zulu
 
