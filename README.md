@@ -84,7 +84,7 @@ Execute on terminal ("gedit" is a text editor, you can use another):
 gedit ~/.profile
 ```
 
-Add this line:
+Add/edit this line:
 
 ```
 export PATH="$DEVELOPMENT_HOME/scripts:$PATH"
@@ -104,7 +104,7 @@ echo $PATH
  
 ### Windows
 
-For windows just press "Win + R", put the "rundll32.exe sysdm.cpl,EditEnvironmentVariables", and it will run the Environment Variables window immediately, find the "PATH" variable and add a new value, "%DEVELOPMENT%\scripts".
+For windows just press "Win + R", put the "rundll32.exe sysdm.cpl,EditEnvironmentVariables", and it will run the Environment Variables window immediately, find the "PATH" variable and add a new value, "%DEVELOPMENT_HOME%\scripts".
 
 Open a terminal and check it:
 
@@ -122,7 +122,7 @@ git clone https://github.com/fernando-romulo-silva/simple-devhome
 
 ## Step 5
 
-Finally we need enter the "src" folder and execute the installation script.
+Finally you need enter the "src" folder and execute the installation script.
 
 ### Linux
 
@@ -158,47 +158,48 @@ start-development-folder.bat
 This section you learn how to some stuff on your machine.
 All script begins with 'set'.
 
-# Java, Ant, Maven and Gradle
+## Java, Ant, Maven and Gradle
 
-To install Java 17, Ant 1.10, Maven 3.8 and Gradle 7.5 execute:
+To install Java, Ant, Maven and Gradle execute:
 
-## Linux
+### Linux
 
 ```bash
 source set-java-17-oracle-hotspot.sh
 ```
 
-## Windows
+### Windows
 
 ```bash
 set-java-17-oracle-hotspot.bat
 ```
 
-## Other Versions
+### Other Versions
 
-For Java 17 version you can install these versions:
+For Java 17 version you can install these other JDKs:
+
 - set-java-17-oracle-hotspot
 - set-java-17-azul-zulu
 - set-java-17-jetbrains-jbr-dcevm
 - set-java-17-oracle-graalvm
  
-For Java 11 version you can install these versions:
+For Java 11 version you can install these JDKs:
 
 - set-java-11-azul-zulu
 - set-java-11-travis-travaopen
 - set-java-11-oracle-graalvm
 
-For Java 8 version you can install these versions:
+For Java 8 version you can install these JDKs:
 
 - set-java-8-azul-zulu
 - set-java-8-azul-zulu-dcevm
 
-For Java 7 version you can install these versions:
+For Java 7 version you can install these JDKs:
 
 - set-java-7-azul-zulu
 - set-java-7-azul-zulu-dcevm
 
-For Java 6 version you can install only this version:
+For Java 6 version you can install only this JDK:
 
 - set-java-6-azul-zulu
 
