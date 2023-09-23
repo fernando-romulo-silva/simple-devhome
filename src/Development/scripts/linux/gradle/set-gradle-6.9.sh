@@ -32,8 +32,8 @@ if [[ $JAVA_MAJOR_VERSION != 11 ]]; then
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install gradle
-source ../internal/set-program.sh https://downloads.gradle-dn.com/distributions/gradle-6.9.2-bin.zip gradle-6.9.2 tools/gradle GRADLE_HOME
+# install gradle                   
+source ../internal/set-program.sh https://downloads.gradle.org/distributions/gradle-6.9.2-bin.zip gradle-6.9 tools/gradle GRADLE_HOME
 
 # Test it
 gradle -v

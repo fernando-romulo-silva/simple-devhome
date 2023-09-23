@@ -4,7 +4,7 @@ back_gradle=$(pwd)
 cd $DEVELOPMENT_HOME/scripts/gradle
 
 echo "=============================================================================================================================="
-echo "Set the environment for Gradle 7.5 (JDK 17+)"
+echo "Set the environment for Gradle 7.5 (JDK 17)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
@@ -19,7 +19,6 @@ fi
 # -----------------------------------------------------------------------------------------------------
 # check the JAVA_HOME variable
 if [[ -z "${JAVA_HOME}" ]] ; then
-  echo 
   source ../internal/exit-script.sh $back_gradle "error: JAVA_HOME is not configured, please configure it."
   return 0
 fi
@@ -33,8 +32,8 @@ if [[ $JAVA_MAJOR_VERSION -lt 17 ]]; then
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install gradle
-source ../internal/set-program.sh https://downloads.gradle-dn.com/distributions/gradle-7.5.1-bin.zip gradle-7.5.1 tools/gradle GRADLE_HOME
+# install gradle                  
+source ../internal/set-program.sh https://downloads.gradle.org/distributions/gradle-7.5.1-bin.zip gradle-7.5 tools/gradle GRADLE_HOME
 
 # Test it
 gradle -v

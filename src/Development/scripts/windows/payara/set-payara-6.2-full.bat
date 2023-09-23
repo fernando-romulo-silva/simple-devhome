@@ -1,17 +1,17 @@
 @echo off
 rem go to script dir
-set back_gradle=%cd%
-cd %DEVELOPMENT_HOME%\scripts\gradle
+set bac_pay=%cd%
+cd %DEVELOPMENT_HOME%\scripts\payara
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 6.9 (JDK 11)
+echo Set the Environment for Payara 6.2 Full Profile (JEE 9)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    goto exit
+    goto exit 
 ) else (
  	echo %var1%
 )
@@ -39,20 +39,21 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
   )
 )
 
-if not %JAVA_VERSION%==11 (
-	echo error: Java 11 is required!
-    goto exit
-)
+if %JAVA_VERSION% LSS 11 (
+	echo error: Java 11 or higher is required!
+	goto exit
+)  
 
 rem -----------------------------------------------------------------------------------------------------
-rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-6.9.2-bin.zip gradle-6.9 tools\gradle GRADLE_HOME
+rem install Payara 6.2 Full
+call ..\internal\set-program https://nexus.payara.fish/repository/payara-community/fish/payara/distributions/payara/6.2023.9/payara-6.2023.9.zip payara-6.2-full servers\payara PAYARA_HOME
 
-rem Test it
-call gradle -v
+rem -----------------------------------------------------------------------------------------------------
+rem doc Payara
+call doc-payara
 
 :exit
 echo ==============================================================================================================================
 
-rem go back 
-cd %back_gradle%
+rem go bac_pay
+cd %bac_pay%

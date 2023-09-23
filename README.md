@@ -165,16 +165,22 @@ To install Java, Ant, Maven and Gradle execute:
 ### Linux
 
 ```bash
-source set-java-17-oracle-hotspot.sh
+source set-java-21-oracle-hotspot.sh
 ```
 
 ### Windows
 
 ```bash
-set-java-17-oracle-hotspot.bat
+set-java-21-oracle-hotspot.bat
 ```
 
 ### Other Versions
+
+For Java 21 version you can install these other JDKs:
+
+- set-java-21-oracle-hotspot
+- set-java-21-azul-zulu
+- set-java-21-oracle-graalvm
 
 For Java 17 version you can install these other JDKs:
 

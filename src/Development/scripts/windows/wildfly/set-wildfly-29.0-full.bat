@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
-set back_tom=%cd%
-cd %DEVELOPMENT_HOME%\scripts\tomcat
+set back_wild=%cd%
+cd %DEVELOPMENT_HOME%\scripts\wildfly
 
 echo ==============================================================================================================================
-echo Set the Environment for Tomcat 10.0 (Java 11+, JEE 9 Web = Servlet 5.0, JSP 3.0, EL 4.0, WebSocket 2.0, Authentication (JASIC) 2.0)
+echo Set the Environment for Wildfly 29.0 Full Profile (Java 17+, JEE 10)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -39,21 +39,21 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
   )
 )
 
-if %JAVA_VERSION% LSS 11 (
-	echo error: Java 11 or higher is required!
+if %JAVA_VERSION% LSS 17 (
+	echo error: Java 17 or higher is required!
 	goto exit
 )
 
 rem -----------------------------------------------------------------------------------------------------
-rem install Tomcat 10.0
-call ..\internal\set-program https://mirror.nbtelecom.com.br/apache/tomcat/tomcat-10/v10.0.6/bin/apache-tomcat-10.0.6.tar.gz apache-tomcat-10.0 servers\apache-tomcat CATALINA_HOME
+rem install wildfly 26 Full
+call ..\internal\set-program https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final.zip wildfly-29.0-full servers\wildfly WILDFLY_HOME
 
 rem -----------------------------------------------------------------------------------------------------
-rem doc Tomcat
-call doc-tomcat
+rem doc Wildfly
+call doc-wildfly
+
+:exit
+echo ==============================================================================================================================
 
 rem go back 
-cd %back_tom%
-
-echo ==============================================================================================================================
-:exit
+cd %back_wild%

@@ -46,7 +46,7 @@ if %JAVA_VERSION% GTR 7 (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install ant
-call ..\internal\set-program https://downloads.apache.org//ant/binaries/apache-ant-1.9.16-bin.zip apache-ant-1.9.16 tools\apache-ant ANT_HOME
+call ..\internal\set-program https://dlcdn.apache.org//ant/binaries/apache-ant-1.9.16-bin.zip apache-ant-1.9 tools\apache-ant ANT_HOME
 
 rem Test it
 call ant -version

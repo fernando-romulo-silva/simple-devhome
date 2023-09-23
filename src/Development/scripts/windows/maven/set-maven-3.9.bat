@@ -1,17 +1,17 @@
 @echo off
 rem go to script dir
-set back_gradle=%cd%
-cd %DEVELOPMENT_HOME%\scripts\gradle
+set back_maven=%cd%
+cd %DEVELOPMENT_HOME%\scripts\maven
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 6.9 (JDK 11)
+echo Set the environment for Maven 3.9 (JDK 8+)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
 call ..\internal\check-develpment-folder var1
 if /I "%var1:error=%" neq "%var1%" (
 	echo %var1%
-    goto exit
+    goto exit 
 ) else (
  	echo %var1%
 )
@@ -39,20 +39,20 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
   )
 )
 
-if not %JAVA_VERSION%==11 (
-	echo error: Java 11 is required!
-    goto exit
-)
+if %JAVA_VERSION% LSS 8 (
+	echo error: Java 8 or higher is required!
+	goto exit
+) 
 
 rem -----------------------------------------------------------------------------------------------------
-rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-6.9.2-bin.zip gradle-6.9 tools\gradle GRADLE_HOME
+rem install maven
+call ..\internal\set-program https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.zip apache-maven-3.9 tools\apache-maven M2_HOME
 
 rem Test it
-call gradle -v
+call mvn -version 
 
 :exit
 echo ==============================================================================================================================
 
-rem go back 
-cd %back_gradle%
+rem go back
+cd %back_maven%

@@ -4,7 +4,7 @@ set bac_pay=%cd%
 cd %DEVELOPMENT_HOME%\scripts\payara
 
 echo ==============================================================================================================================
-echo Set the Environment for Payara 5.2 Full Profile (JEE 9)
+echo Set the Environment for Payara 5.2 Full Profile (JEE 8)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -46,7 +46,7 @@ if %JAVA_VERSION% LSS 11 (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install Payara 5.2 Full
-call ..\internal\set-program https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/5.2022.3/payara-5.2022.3.zip payara-5.2-full servers\payara PAYARA_HOME
+call ..\internal\set-program https://nexus.payara.fish/repository/payara-community/fish/payara/distributions/payara/5.2022.5/payara-5.2022.5.zip payara-5.2-full servers\payara PAYARA_HOME
 
 rem -----------------------------------------------------------------------------------------------------
 rem doc Payara

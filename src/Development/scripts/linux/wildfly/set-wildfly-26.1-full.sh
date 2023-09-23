@@ -33,7 +33,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install wildfly-26.1
-source ../internal/set-program.sh https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-26.1.2.Final.zip wildfly-26.1-full servers/wildfly WILDFLY_HOME
+source ../internal/set-program.sh https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-26.1.3.Final.zip wildfly-26.1-full servers/wildfly WILDFLY_HOME
 
 # -----------------------------------------------------------------------------------------------------
 # doc Wildfly

@@ -33,7 +33,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install ant
-source ../internal/set-program.sh https://dlcdn.apache.org//ant/binaries/apache-ant-1.9.16-bin.zip apache-ant-1.9.16 tools/apache-ant ANT_HOME
+source ../internal/set-program.sh https://dlcdn.apache.org//ant/binaries/apache-ant-1.9.16-bin.zip apache-ant-1.9 tools/apache-ant ANT_HOME
 
 export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
 export ANT_OPTS="-Xms256M -Xmx512M"

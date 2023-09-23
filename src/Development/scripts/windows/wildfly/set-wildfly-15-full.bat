@@ -4,7 +4,7 @@ set back_wild=%cd%
 cd %DEVELOPMENT_HOME%\scripts\wildfly
 
 echo ==============================================================================================================================
-echo Set the Environment for Wildfly 15 Full Profile (Java11+, JEE 8)
+echo Set the Environment for Wildfly 15.0 Full Profile (Java11+, JEE 8)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -45,7 +45,7 @@ if %JAVA_VERSION% LSS 11 (
 )
 
 rem -----------------------------------------------------------------------------------------------------
-rem install wildfly 15 Full
+rem install wildfly 15.0 Full
 call ..\internal\set-program https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip wildfly-15.0-full servers\wildfly WILDFLY_HOME
 
 rem -----------------------------------------------------------------------------------------------------

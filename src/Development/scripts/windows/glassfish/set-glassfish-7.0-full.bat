@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
-set back_gradle=%cd%
-cd %DEVELOPMENT_HOME%\scripts\gradle
+set back_glass=%cd%
+cd %DEVELOPMENT_HOME%\scripts\glassfish
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 6.9 (JDK 11)
+echo Set the Environment for Glassfish 7.0 Full Profile (JEE 10)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -14,13 +14,13 @@ if /I "%var1:error=%" neq "%var1%" (
     goto exit
 ) else (
  	echo %var1%
-)
+) 
 
 rem -----------------------------------------------------------------------------------------------------
 rem check JAVA_HOME
 if %JAVA_HOME% == "" (
-   echo Java home, JAVA_HOME, is not configured, please configure it.
-   goto exit 
+    echo error: JAVA_HOME is not configured, please configure it.
+    goto exit
 )
 
 rem -----------------------------------------------------------------------------------------------------
@@ -39,20 +39,20 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
   )
 )
 
-if not %JAVA_VERSION%==11 (
+if not %JAVA_VERSION%==17 (
 	echo error: Java 11 is required!
-    goto exit
+    goto exit	
 )
+rem -----------------------------------------------------------------------------------------------------
+rem install glassfish 7.0 full
+call ..\internal\set-program https://download.eclipse.org/ee4j/glassfish/glassfish-7.0.8.zip glassfish-7.0-full servers/glassfish GLASSFISH_HOME     
 
 rem -----------------------------------------------------------------------------------------------------
-rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-6.9.2-bin.zip gradle-6.9 tools\gradle GRADLE_HOME
-
-rem Test it
-call gradle -v
+rem doc glassfish
+call doc-glassfish
 
 :exit
 echo ==============================================================================================================================
 
 rem go back 
-cd %back_gradle%
+cd %back_glass%

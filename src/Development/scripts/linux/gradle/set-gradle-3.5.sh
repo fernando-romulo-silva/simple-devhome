@@ -33,7 +33,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-source ../internal/set-program.sh https://services.gradle.org/distributions/gradle-3.5.1-bin.zip gradle-3.5.1 tools/gradle GRADLE_HOME
+source ../internal/set-program.sh https://services.gradle.org/distributions/gradle-3.5.1-bin.zip gradle-3.5 tools/gradle GRADLE_HOME
 
 # Test it
 gradle -v

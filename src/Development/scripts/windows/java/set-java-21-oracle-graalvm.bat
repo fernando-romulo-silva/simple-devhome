@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
-set back_gradle=%cd%
-cd %DEVELOPMENT_HOME%\scripts\gradle
+set back_java=%cd%
+cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 6.9 (JDK 11)
+echo Set the environment for Oracle GraalVM JDK 21
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -14,45 +14,38 @@ if /I "%var1:error=%" neq "%var1%" (
     goto exit
 ) else (
  	echo %var1%
-)
+) 
 
 rem -----------------------------------------------------------------------------------------------------
-rem check JAVA_HOME
-if %JAVA_HOME% == "" (
-   echo Java home, JAVA_HOME, is not configured, please configure it.
-   goto exit 
-)
+rem install java
+call ..\internal\set-program https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-21.0.0/graalvm-community-jdk-21.0.0_windows-x64_bin.zip jdk21-oracle-graalvm languages\java JAVA_HOME
+
+rem test it
+call java -version
+
+echo(
+echo(
 
 rem -----------------------------------------------------------------------------------------------------
-rem check Java version
-set JAVA_VERSION=0
-for /f "tokens=3" %%g in ('java -Xms32M -Xmx32M -version 2^>^&1 ^| findstr /i "version"') do (
-  set JAVA_VERSION=%%g
-)
+rem install ant
+call ..\ant\set-ant-1.10
 
-set JAVA_VERSION=%JAVA_VERSION:"=%
-for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
-  if /I "%%v" EQU "1" (
-    set JAVA_VERSION=%%w
-  ) else (
-    set JAVA_VERSION=%%v
-  )
-)
+echo(
+echo(
 
-if not %JAVA_VERSION%==11 (
-	echo error: Java 11 is required!
-    goto exit
-)
+rem -----------------------------------------------------------------------------------------------------
+rem install maven
+call ..\maven\set-maven-3.9
+
+echo(
+echo( 
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-6.9.2-bin.zip gradle-6.9 tools\gradle GRADLE_HOME
+call ..\gradle\set-gradle-8.3
 
-rem Test it
-call gradle -v
+rem go back
+cd %back_java%
 
-:exit
 echo ==============================================================================================================================
-
-rem go back 
-cd %back_gradle%
+:exit

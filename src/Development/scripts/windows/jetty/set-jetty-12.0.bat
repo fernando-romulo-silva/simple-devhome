@@ -1,10 +1,10 @@
 @echo off
 rem go to script dir
-set back_gradle=%cd%
-cd %DEVELOPMENT_HOME%\scripts\gradle
+set back_jetty=%cd%
+cd %DEVELOPMENT_HOME%\scripts\jetty
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 6.9 (JDK 11)
+echo Set the environment for Jetty 12.0 (Java 17+, JEE 10 Web = Servlet 6.0, JSP 3.1, EL 5.0, WebSocket 2.1, Authentication (JASIC) 2.1)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -14,12 +14,12 @@ if /I "%var1:error=%" neq "%var1%" (
     goto exit
 ) else (
  	echo %var1%
-)
+) 
 
 rem -----------------------------------------------------------------------------------------------------
 rem check JAVA_HOME
 if %JAVA_HOME% == "" (
-   echo Java home, JAVA_HOME, is not configured, please configure it.
+   echo error: JAVA_HOME is not configured, please configure it.
    goto exit 
 )
 
@@ -39,20 +39,21 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
   )
 )
 
-if not %JAVA_VERSION%==11 (
-	echo error: Java 11 is required!
-    goto exit
+if %JAVA_VERSION% LSS 17 (
+	echo error: Java 17 or higher is required!
+	goto exit
 )
 
 rem -----------------------------------------------------------------------------------------------------
-rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-6.9.2-bin.zip gradle-6.9 tools\gradle GRADLE_HOME
+rem install Jetty 12.0
+call ..\internal\set-program https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-home/12.0.1/jetty-home-12.0.1.zip jetty-12.0 servers\jetty JETTY_HOME
 
-rem Test it
-call gradle -v
+rem -----------------------------------------------------------------------------------------------------
+rem doc Jetty
+call doc-jetty
 
 :exit
 echo ==============================================================================================================================
 
 rem go back 
-cd %back_gradle%
+cd %back_jetty%

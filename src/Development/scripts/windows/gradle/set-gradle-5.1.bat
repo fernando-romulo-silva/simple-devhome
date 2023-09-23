@@ -46,7 +46,7 @@ if not %JAVA_VERSION%==8 (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1.1 tools\gradle GRADLE_HOME
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-5.1.1-bin.zip gradle-5.1 tools\gradle GRADLE_HOME
 
 rem Test it
 call gradle -v
