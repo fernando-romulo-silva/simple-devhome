@@ -129,7 +129,7 @@ Finally you need enter the "src" folder and execute the installation script.
 Execute on terminal:
 
 ```bash
-cd simple-devhome/Development/src
+cd simple-devhome/src/Development
 ```
 
 And: 
@@ -143,7 +143,7 @@ sh start-development-folder.sh
 Execute on terminal:
 
 ```bash
-cd simple-devhome\Development\src
+cd simple-devhome\src\Development
 ```
 
 And: 
