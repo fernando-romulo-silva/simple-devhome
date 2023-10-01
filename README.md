@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Project status](https://img.shields.io/badge/Project%20status-Maintenance-orange.svg)](https://img.shields.io/badge/Project%20status-Maintenance-orange.svg)
 
-## Project status
+# Project status
 
 I change this project constantly improving and adding new scripts, click [here](docs/STATUS.md) to follow up.
 
@@ -25,6 +25,8 @@ To install you need the git installed on your pc, check it:
 ```bash
 git --version
 ```
+And access to Bash and Prompt command
+
 # Install
 
 You can install it on [Linux](docs/INSTALL-LINUX.md) or [Windows](docs/INSTALL-WINDOWS.md)
