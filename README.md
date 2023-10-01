@@ -5,207 +5,98 @@
 
 ## Project status
 
-I change this project constantly, adding new scripts.
+I change this project constantly improving and adding new scripts, click [here](docs\STATUS.md) to follow up.
 
 # About
 
 These project was created to help developers start a "developer folder" on their machines. <br />
-There are some scripts to download jdks (oracle, azul, etc), tools like Apache Ant, Apache Maven, etc., servers like Tomcat, Glassfish, and so on.
-Not only create, but download, configure and set on environment variables.
+There are some scripts to download jdks (oracle, azul, etc), tools like Apache Ant, Apache Maven, etc., and servers like Tomcat, Glassfish, etc. and so on.
+Not only create, but download, configure and set on environment variables. Similar to [SDkMAN](https://sdkman.io/), although more simpler.
 
 # Technologies
 
-- Bash (Shell)
+- Bash Shell
 - Batch File
+
+# Requirements
+
+To install you need the git installed on your pc, check it:
+
+git --version
 
 # Install
 
-Please follow these steps:
-
-## Step 1
-
-You have to create a folder to put the content, the "Development" folder (preferencially something like '/home/yourUser/Development' for Linux and 'C:\Users\yourUser\Development' for windows). <br />
-The word 'yourUser' is a user name example. <br />
-
-## Step 2
-
-Next you have to create a user environment variable called "DEVELOPMENT_HOME" on your OS. <br />
-
-### Linux
-
-Execute on terminal ("gedit" is a text editor, you can use another):
-
-```bash
-gedit ~/.profile
-```
-
-Add this line:
-
-```
-export DEVELOPMENT_HOME="/home/yourUser/Development"
-```
-
-Save and close the profile then reload the terminal:
-
-```bash
-. ~/.profile
-```
-
-After that, check it:
-
-```bash
-echo $DEVELOPMENT_HOME
-```
-
-### Windows
-
-For windows just press "Win + R", put the "rundll32.exe sysdm.cpl,EditEnvironmentVariables", and it will run the Environment Variables window immediately, now you can add:
-
-```
-name = DEVELOPMENT_HOME
-value = C:\Users\yourUser\Development
-```
-
-Save and close, open another terminal and check it:
-
-```bash
-echo %DEVELOPMENT_HOME%
-```
-
-## Step 3
-
-Then add the the script folder on your "PATH" environment var to access the commands on terminal:
-
-### Linux
-
-Execute on terminal ("gedit" is a text editor, you can use another):
-
-```bash
-gedit ~/.profile
-```
-
-Add/edit this line:
-
-```
-export PATH="$DEVELOPMENT_HOME/scripts:$PATH"
-```
-
-Save and close the profile then reload the terminal:
-
-```bash
-. ~/.profile
-```
-
-After that check it:
-
-```bash
-echo $PATH
-```
- 
-### Windows
-
-For windows just press "Win + R", put the "rundll32.exe sysdm.cpl,EditEnvironmentVariables", and it will run the Environment Variables window immediately, find the "PATH" variable and add a new value, "%DEVELOPMENT_HOME%\scripts".
-
-Open a terminal and check it:
-
-```bash
-echo %PATH%
-```
-
-## Step 4
-
-Now get the code on the github: 
-
-```bash
-git clone https://github.com/fernando-romulo-silva/simple-devhome
-```
-
-## Step 5
-
-Finally you need enter the "src" folder and execute the installation script.
-
-### Linux
-
-Execute on terminal:
-
-```bash
-cd simple-devhome/src/Development
-```
-
-And: 
-
-```bash
-sh start-development-folder.sh
-```
-
-### Windows
-
-Execute on terminal:
-
-```bash
-cd simple-devhome\src\Development
-```
-
-And: 
-
-```bash
-start-development-folder.bat
-```
-
+You can install it on [Linux](docs\INSTALL-LINUX.md) or [Windows](docs\INSTALL-WINDOWS.md)
 
 # How to Use
 
-This section you learn how to some stuff on your machine.
-All script begins with 'set'.
+This section show how to use
 
-## Java, Ant, Maven and Gradle
+## Concepts
 
-To install Java, Ant, Maven and Gradle execute:
+To use these scripts you have to understand some concepts.
+The scripts are following these structure: 
 
-### Linux
+set-software-version\[-vendor][-codenome].[sh|bat]
+
+Examples:
+
+set-java-21-oracle-hotspot.sh
+
+set-java-17-jetbrains-jbrdcevm.bat
+
+set-tomcat-9.0.sh
+
+set-jetty-12.0.bat
+
+You can realize that in the Tomcat and Jetty scripts, there is no vendor; it is omitted because there is only one vendor for both Apache and Eclipse respectively.
+
+## To Run
+
+To run any script on linux:
 
 ```bash
-source set-java-21-oracle-hotspot.sh
+source set-software-version\[-vendor][-codenome].sh
+```
+or
+
+```cmd
+. set-software-version\[-vendor][-codenome].sh
 ```
 
-### Windows
+And windows:
 
 ```bash
 set-java-21-oracle-hotspot.bat
 ```
 
-### Other Versions
+## What happening?
 
-For Java 21 version you can install these other JDKs:
+When you execute the script regardless the SO, what the script do:
 
-- set-java-21-oracle-hotspot
-- set-java-21-azul-zulu
-- set-java-21-oracle-graalvm
+- Download the software and put the download on '$DEVELOPMENT_HOME$\downloads' folder;
+- Extract it on its directory; 
+- Set the terminal/prompt command environment vars;
+- Check the software;
 
-For Java 17 version you can install these other JDKs:
+Check the example, the ant script:
 
-- set-java-17-oracle-hotspot
-- set-java-17-azul-zulu
-- set-java-17-jetbrains-jbr-dcevm
-- set-java-17-oracle-graalvm
- 
-For Java 11 version you can install these JDKs:
+![Model](https://github.com/fernando-romulo-silva/simple-devhome/blob/master/doc/example01.png)
 
-- set-java-11-azul-zulu
-- set-java-11-travis-travaopen
-- set-java-11-oracle-graalvm
+## Scripts
 
-For Java 8 version you can install these JDKs:
+So far I provided some scripts, check it:
 
-- set-java-8-azul-zulu
-- set-java-8-azul-zulu-dcevm
+- [Java](docs\SET-JAVA.md)
+- Ant
+- Maven
+- Gradle
+- Tomcat
+- Jetty
+- Glassfish
+- Wildfly
+- Payara
 
-For Java 7 version you can install these JDKs:
+## Java
 
-- set-java-7-azul-zulu
-- set-java-7-azul-zulu-dcevm
-
-For Java 6 version you can install only this JDK:
-
-- set-java-6-azul-zulu
 
