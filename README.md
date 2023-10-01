@@ -27,7 +27,7 @@ git --version
 ```
 # Install
 
-You can install it on [Linux](docs\INSTALL-LINUX.md) or [Windows](docs\INSTALL-WINDOWS.md)
+You can install it on [Linux](docs/INSTALL-LINUX.md) or [Windows](docs/INSTALL-WINDOWS.md)
 
 # How to Use
 
@@ -88,7 +88,7 @@ Check the example, the ant script:
 
 So far I provided some scripts, check it:
 
-- [Java](docs\SET-JAVA.md)
+- [Java](docs/SET-JAVA.md)
 - Ant
 - Maven
 - Gradle
