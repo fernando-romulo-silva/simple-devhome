@@ -1,4 +1,4 @@
-# Install Windows
+# Install On Windows
 
 To install on Windows please follow these steps (tested on Windows 7 e 10):
 

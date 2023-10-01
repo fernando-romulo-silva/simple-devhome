@@ -5,7 +5,7 @@
 
 ## Project status
 
-I change this project constantly improving and adding new scripts, click [here](docs\STATUS.md) to follow up.
+I change this project constantly improving and adding new scripts, click [here](docs/STATUS.md) to follow up.
 
 # About
 
@@ -68,7 +68,7 @@ or
 And windows:
 
 ```bash
-set-java-21-oracle-hotspot.bat
+set-software-version\[-vendor][-codenome].bat
 ```
 
 ## What happening?

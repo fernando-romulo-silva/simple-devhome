@@ -1,4 +1,4 @@
-# Install Linux
+# Install On Linux
 
 To install on linux please follow these steps (tested on Ubuntu 20.20):
 
