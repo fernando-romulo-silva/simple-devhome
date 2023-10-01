@@ -23,13 +23,14 @@ Not only create, but download, configure and set on environment variables. Simil
 To install you need the git installed on your pc, check it:
 
 ```bash
+# check the git version
 git --version
 ```
 And access to Bash and Prompt command
 
 # Install
 
-You can install it on [Linux](docs/INSTALL-LINUX.md) or [Windows](docs/INSTALL-WINDOWS.md)
+You can install it on [Linux](docs/INSTALL-LINUX.md) or [Windows](docs/INSTALL-WINDOWS.md).
 
 # How to Use
 
@@ -99,4 +100,3 @@ So far I provided some scripts, check it:
 - Glassfish
 - Wildfly
 - Payara
-
