@@ -22,8 +22,9 @@ Not only create, but download, configure and set on environment variables. Simil
 
 To install you need the git installed on your pc, check it:
 
+```bash
 git --version
-
+```
 # Install
 
 You can install it on [Linux](docs\INSTALL-LINUX.md) or [Windows](docs\INSTALL-WINDOWS.md)
@@ -60,7 +61,7 @@ source set-software-version\[-vendor][-codenome].sh
 ```
 or
 
-```cmd
+```bash
 . set-software-version\[-vendor][-codenome].sh
 ```
 
@@ -81,7 +82,7 @@ When you execute the script regardless the SO, what the script do:
 
 Check the example, the ant script:
 
-![Model](https://github.com/fernando-romulo-silva/simple-devhome/blob/master/doc/example01.png)
+![Model](https://github.com/fernando-romulo-silva/simple-devhome/blob/master/docs/example01.png)
 
 ## Scripts
 
@@ -96,7 +97,4 @@ So far I provided some scripts, check it:
 - Glassfish
 - Wildfly
 - Payara
-
-## Java
-
 
