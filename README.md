@@ -15,6 +15,8 @@ Not only create, but download, configure and set on environment variables. Simil
 
 # Technologies
 
+Technologies used on this project:
+
 - Bash Shell
 - Batch File
 
