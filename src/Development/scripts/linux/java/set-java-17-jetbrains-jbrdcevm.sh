@@ -53,7 +53,7 @@ echo " "
 source ../set-gradle-7.5.sh
 
 echo " "
-echo "Don't forget to run your application with additional VM arguments '-XX:+AllowEnhancedClassRedefinition -XX:+AllowRedefinitionToAddDeleteMethods -XX:HotswapAgent=fatjar'"
+echo "Don't forget to run your application with additional VM arguments '-XX:+AllowEnhancedClassRedefinition -XX:HotswapAgent=fatjar'"
 
 # go back
 cd $back_java
