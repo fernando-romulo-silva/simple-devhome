@@ -43,17 +43,35 @@ This section show how to use
 To use these scripts you have to understand some concepts.
 The scripts are following these structure: 
 
+```bash
 set-software-version\[-vendor][-codenome].[sh|bat]
+```
 
 Examples:
 
-set-java-21-oracle-hotspot.sh
+Install and/or config Oracle Java version 21, hotspot on Linux: 
 
+```bash
+. set-java-21-oracle-hotspot.sh
+```
+
+Install and/or config Jetbrains Java version 21, jbrdcevm on Windows:
+
+```bash
 set-java-17-jetbrains-jbrdcevm.bat
+```
 
+Install and/or config Tomcat 9 on Linux:
+
+```bash
 set-tomcat-9.0.sh
+```
 
+Install and/or config Jetty 12 on Windows:
+
+```bash
 set-jetty-12.0.bat
+```
 
 You can realize that in the Tomcat and Jetty scripts, there is no vendor; it is omitted because there is only one vendor for both Apache and Eclipse respectively.
 
@@ -94,7 +112,7 @@ Check the example, the ant script:
 So far I provided some scripts, check it:
 
 - [Java](docs/SET-JAVA.md)
-- Ant
+- [Ant](docs/SET-ANT.md)
 - Maven
 - Gradle
 - Tomcat
