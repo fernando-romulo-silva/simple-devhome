@@ -44,7 +44,7 @@ git clone https://github.com/fernando-romulo-silva/simple-devhome
 
 ## Step 5
 
-Finally you need enter the "src" folder and execute the installation script:
+Finally you really NEED enter the "src\Development" and execute the installation script:
 
 ```bash
 cd simple-devhome\src\Development
