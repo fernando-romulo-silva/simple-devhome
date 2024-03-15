@@ -7,6 +7,11 @@
 
 I change this project constantly improving and adding new scripts, click [here](docs/STATUS.md) to follow up.
 
+# The Problem
+
+I worked in a company where losing everything on my PC was a routine, my workplace, libraries, config files, environment variables, etc.
+And I had to recreate everything from scratch, it was tedious and time-consuming.
+
 # About
 
 These project was created to help developers start a "developer folder" on their machines. <br />
