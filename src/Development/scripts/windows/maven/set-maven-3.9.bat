@@ -46,7 +46,7 @@ if %JAVA_VERSION% LSS 8 (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install maven
-call ..\internal\set-program https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.zip apache-maven-3.9 tools\apache-maven M2_HOME
+call ..\internal\set-program https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip apache-maven-3.9 tools\apache-maven M2_HOME
 
 rem Test it
 call mvn -version 

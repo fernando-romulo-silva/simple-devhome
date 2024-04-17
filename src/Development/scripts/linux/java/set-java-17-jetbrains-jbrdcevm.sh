@@ -17,8 +17,8 @@ else
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java
-source ../internal/set-program.sh https://cache-redirector.jetbrains.com/intellij-jbr/jbr_dcevm-17_0_1-linux-x64-b164.8.tar.gz jdk17-jetbrains-jbr-dcevm languages/java JAVA_HOME
+# install java                    https://cache-redirector.jetbrains.com/intellij-jbr/jbr_dcevm-17_0_1-linux-x64-b164.8.tar.gz
+source ../internal/set-program.sh https://cache-redirector.jetbrains.com/intellij-jbr/jbr_fd-17.0.10-linux-x64-b1207.14.tar.gz jdk17-jetbrains-jbr-dcevm languages/java JAVA_HOME
 
 # --------------------
 # install HotswapAgent

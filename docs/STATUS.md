@@ -4,7 +4,9 @@ This is the project tasks controller
 
 ### Todo
 
-- [ ] Add the error treatment #feat @fernando 2023-09-29  
+- [ ] Remove the excess of "====" between nested commands
+
+- [ ] Add the error treatment
   - [ ] Stop execution when a error ocurred
   - [ ] Log the error  
   

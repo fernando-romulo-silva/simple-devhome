@@ -4,7 +4,7 @@ set back_java=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ================================================================================
-echo Set JetBrains JBR JDK 17 (Open Jdk 17 with Dcevm-Full and HotswapAgent)
+echo Set Oracle HotSpot JDK 21
 
 rem --------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -17,8 +17,8 @@ if /I "%var1:error=%" neq "%var1%" (
 ) 
 
 rem --------------------------------------------------------------------
-rem install java             https://cache-redirector.jetbrains.com/intellij-jbr/jbr_dcevm-17_0_1-windows-x64-b164.8.tar.gz
-call ..\internal\set-program https://cache-redirector.jetbrains.com/intellij-jbr/jbr_fd-17.0.10-windows-x64-b1207.14.tar.gz jdk17-jetbrains-jbr-dcevm languages\java JAVA_HOME
+rem install java
+call ..\internal\set-program https://cache-redirector.jetbrains.com/intellij-jbr/jbr_fd-21.0.2-windows-x64-b346.3.tar.gz jdk21-oracle-hotspot languages\java JAVA_HOME
 
 rem --------------------
 rem install HotswapAgent
@@ -45,17 +45,14 @@ echo(
 
 rem --------------------------------------------------------------------
 rem install maven
-call ..\maven\set-maven-3.8
+call ..\maven\set-maven-3.9
 
 echo(
 echo( 
 
 rem --------------------------------------------------------------------
 rem install gradle
-call ..\gradle\set-gradle-7.5
-
-echo(
-echo Don't forget to run your application with additional VM arguments '-XX:+AllowEnhancedClassRedefinition -XX:HotswapAgent=fatjar'
+call ..\gradle\set-gradle-8.3
 
 rem go back
 cd %back_java%
