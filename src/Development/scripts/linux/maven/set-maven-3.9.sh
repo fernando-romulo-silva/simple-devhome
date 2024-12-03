@@ -33,7 +33,7 @@ fi
 
 # -----------------------------------------------------------------------------------------------------
 # install maven
-source ../internal/set-program.sh https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip apache-maven-3.9 tools/apache-maven M2_HOME
+source ../internal/set-program.sh https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.zip apache-maven-3.9 tools/apache-maven M2_HOME
 
 # Test it
 mvn -version

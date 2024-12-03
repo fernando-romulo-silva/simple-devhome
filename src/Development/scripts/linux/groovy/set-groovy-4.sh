@@ -1,16 +1,16 @@
 #!/bin/bash
 # go to script dir
-back_ant=$(pwd)
-cd $DEVELOPMENT_HOME/scripts/ant
+back_groovy=$(pwd)
+cd $DEVELOPMENT_HOME/scripts/groovy
 
 echo "=============================================================================================================================="
-echo "Set the environment for Ant 1.10 (JDK 8+)"
+echo "Set the environment for Groovy 4"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
-  source ../internal/exit-script.sh $back_ant $result
+  source ../internal/exit-script.sh $back_groovy $result
   return 0
 else
   echo $result
@@ -32,16 +32,13 @@ if [[ $JAVA_MAJOR_VERSION -lt 8 ]]; then
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install ant
-source ../internal/set-program.sh https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.15-bin.zip apache-ant-1.10 tools/apache-ant ANT_HOME
-
-export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
-export ANT_OPTS="-Xms256M -Xmx512M"
+# install java
+source ../internal/set-program.sh https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.24.zip groovy4 languages/groovy GROOVY_HOME
 
 # Test it
-ant -version
+groovy -version
 
 # go back
-cd $back_ant
+cd $back_groovy
 
 echo "=============================================================================================================================="
