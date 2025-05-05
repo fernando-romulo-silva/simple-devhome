@@ -4,7 +4,7 @@ set back_gradle=%cd%
 cd %DEVELOPMENT_HOME%\scripts\gradle
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 8.10 (JDK 21+)
+echo Set the environment for Gradle 8.14 (JDK 21+)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -46,7 +46,7 @@ if not %JAVA_VERSION%==23 (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-8.10.2-bin.zip gradle-8.3 tools\gradle GRADLE_HOME
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-8.14-bin.zip gradle-8.14 tools\gradle GRADLE_HOME
 
 rem Test it
 call gradle -v
