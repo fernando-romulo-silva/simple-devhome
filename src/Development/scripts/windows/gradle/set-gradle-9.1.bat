@@ -4,7 +4,7 @@ set back_gradle=%cd%
 cd %DEVELOPMENT_HOME%\scripts\gradle
 
 echo ==============================================================================================================================
-echo Set the environment for Gradle 8.14 (JDK 21+)
+echo Set the environment for Gradle 9.1 (JDK 21+)
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -39,14 +39,14 @@ for /f "delims=.-_ tokens=1-2" %%v in ("%JAVA_VERSION%") do (
   )
 )
 
-if not %JAVA_VERSION%==23 (
-	echo error: Java 23 is required!
+if not %JAVA_VERSION%==21 (
+	echo error: Java 21 is required!
     goto exit
 )
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\internal\set-program https://services.gradle.org/distributions/gradle-8.14-bin.zip gradle-8.14 tools\gradle GRADLE_HOME
+call ..\internal\set-program https://services.gradle.org/distributions/gradle-9.1.0-bin.zip gradle-9.1 tools\gradle GRADLE_HOME 
 
 rem Test it
 call gradle -v

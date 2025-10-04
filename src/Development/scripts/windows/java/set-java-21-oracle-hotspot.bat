@@ -42,7 +42,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\gradle\set-gradle-8.3
+call ..\gradle\set-gradle-9.1
 
 rem go back
 cd %back_java%

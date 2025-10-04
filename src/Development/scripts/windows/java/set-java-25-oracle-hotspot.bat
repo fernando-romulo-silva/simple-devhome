@@ -4,7 +4,7 @@ set back_java=%cd%
 cd %DEVELOPMENT_HOME%\scripts\java
 
 echo ==============================================================================================================================
-echo Set the environment for Oracle HotSpot JDK 23
+echo Set the environment for Oracle HotSpot JDK 25
 
 rem -----------------------------------------------------------------------------------------------------
 rem check the DEVELOPMENT_HOME variable
@@ -18,7 +18,7 @@ if /I "%var1:error=%" neq "%var1%" (
 
 rem -----------------------------------------------------------------------------------------------------
 rem install java
-call ..\internal\set-program https://download.oracle.com/java/23/latest/jdk-23_windows-x64_bin.zip jdk23-oracle-hotspot languages\java JAVA_HOME
+call ..\internal\set-program https://download.oracle.com/java/25/latest/jdk-25_windows-x64_bin.zip jdk25-oracle-hotspot languages\java JAVA_HOME
 
 rem test it
 call java -version
@@ -42,7 +42,7 @@ echo(
 
 rem -----------------------------------------------------------------------------------------------------
 rem install gradle
-call ..\gradle\set-gradle-8.10
+call ..\gradle\set-gradle-9.1
 
 rem go back
 cd %back_java%

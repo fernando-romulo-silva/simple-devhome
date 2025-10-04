@@ -42,7 +42,7 @@ echo " "
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-source ../set-gradle-8.3.sh
+source ../set-gradle-9.1.sh
 
 # go back
 cd $back_java

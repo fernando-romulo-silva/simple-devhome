@@ -1,50 +1,44 @@
 #!/bin/bash
 # go to script dir
-back_java=$(pwd)
-cd $DEVELOPMENT_HOME/scripts/java
+back_gradle=$(pwd)
+cd $DEVELOPMENT_HOME/scripts/gradle
 
 echo "=============================================================================================================================="
-echo "Set the environment for Oracle Hotspot JDK 21"
+echo "Set the environment for Gradle 9.1 (JDK 21+)"
 
 # -----------------------------------------------------------------------------------------------------
 # check the DEVELOPMENT_HOME variable
 result=$(../internal/check-develpment-folder.sh)
 if [ -z "${result##*error*}" ] ; then
-  source ../internal/exit-script.sh $back_java $result
+  source ../internal/exit-script.sh $back_gradle $result
   return 0
 else
   echo $result
 fi
 
 # -----------------------------------------------------------------------------------------------------
-# install java
-source ../internal/set-program.sh https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz jdk21-oracle-hotspot languages/java JAVA_HOME
-
-# Test it
-java -version
-
-echo " "
-echo " "
+# check the JAVA_HOME variable
+if [[ -z "${JAVA_HOME}" ]] ; then
+  source ../internal/exit-script.sh $back_gradle "error: JAVA_HOME is not configured, please configure it."
+  return 0
+fi
 
 # -----------------------------------------------------------------------------------------------------
-# install ant
-source ../set-ant-1.10.sh
-
-echo " "
-echo " "
-
-# -----------------------------------------------------------------------------------------------------
-# install maven
-source ../set-maven-3.9.sh
-
-echo " "
-echo " "
+# check Java
+JAVA_MAJOR_VERSION=$(java -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+' || true)
+if [[ $JAVA_MAJOR_VERSION -lt 21 ]]; then
+  source ../internal/exit-script.sh $back_gradle "error: Java 21+ is required!"
+  return 0
+fi
 
 # -----------------------------------------------------------------------------------------------------
 # install gradle
-source ../set-gradle-8.3.sh
+source ../internal/set-program.sh https://services.gradle.org/distributions/gradle-9.1.0-bin.zip gradle-9.1 tools/gradle GRADLE_HOME
+
+# Test it
+gradle -v
 
 # go back
-cd $back_java
+cd $back_gradle
 
 echo "=============================================================================================================================="
